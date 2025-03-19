@@ -14,8 +14,6 @@ build:
     GIT_SUBMODULE_STRATEGY: normal
     DOCKER_DRIVER: overlay2
     DOCKER_TLS_CERTDIR: ""
-  before_script:
-    - cp ${ENV} .env
   script:
     - docker build --cache-from "$CI_REGISTRY/$CI_REGISTRY_IMAGE:latest" -t "$CI_REGISTRY/$CI_REGISTRY_IMAGE:latest" ./
     - docker push "$CI_REGISTRY/$CI_REGISTRY_IMAGE:latest"
