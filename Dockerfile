@@ -10,7 +10,7 @@ RUN npm run build
 
 FROM php:8.3-fpm
 
-COPY composer.lock composer.json /var/www/
+COPY artisan composer.lock composer.json /var/www/
 WORKDIR /var/www
 
 # Install dependencies
