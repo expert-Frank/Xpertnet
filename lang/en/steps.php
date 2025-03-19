@@ -1,0 +1,51 @@
+<?php
+
+return [
+    "chooseT" => "Choose your product",
+    "chooseD" => "Choose the Internet offer that best suits your needs - whether VDSL or fiber, for your home or for your business.",
+    "chooseForHome" => "For Home Use",
+    "chooseForBusiness" => "For Businesses",
+    "chooseOptionVDSLHome" => "VDSL at Home",
+    "chooseOptionVDSLHomeD" => "Benefit from reliable Internet with stable speed for your home network. Ideal for streaming, gaming and working from home.",
+    "chooseOptionFiberHome" => "Fiber at Home",
+    "chooseOptionFiberHomeD" => "The fastest and future-proof solution! With a fiber optic connection, you can enjoy ultra-fast Internet and are ideally equipped for the digital future.",
+    "chooseOptionVDSLBusiness" => "Business VDSL",
+    "chooseOptionVDSLBusinessD" => "High-performance Internet for small and medium-sized businesses. Optimized for multiple users and business applications.",
+    "chooseOptionFiberBusiness" => "Business Fiber",
+    "chooseOptionFiberBusinessD" => "The perfect solution for companies that depend on fast connections and maximum reliability. Enables fast working and efficient team communication.",
+
+    "routerT" => "Router selection",
+    "routerD" => "Select the right router for your connection. We recommend the FRITZ!Box models, which are known for their reliability and ease of use.",
+    "routerFritz" => "Fritzboxes - The perfect choice for home and business",
+    "routerFritzD" => "We offer you the best routers for your needs. The standard routers we offer are powerful, reliable and easy to configure.",
+    "routerVDSL5530" => "FRITZ!Box 5530 (VDSL)",
+    "routerVDSL5530D" => "Compact VDSL router with everything you need for stable Internet access.",
+    "routerVDSL7530" => "FRITZ!Box 7530 (VDSL) incl. modem cable",
+    "routerVDSL7530D" => "Powerful and easy to use. Ideal for larger households or small businesses.",
+    "routerxDSL7530AX" => "FRITZ!Box 7530AX (xDSL)",
+    "routerxDSL7530AXD" => "With Wi-Fi 6 for higher speeds and better range. Perfect for modern homes and small offices.",
+
+
+    "availabilityT" => "Check availability",
+    "availabilityD" => "Enter your address and check whether the desired Internet connections are available at your location.",
+    "setupT" => "Installation - Easy or Professional?",
+    "setupEasyT" => "Simple network",
+    "setupEasyD" => "If you want to set up a simple network at home or in the office, you can easily do the installation yourself.",
+    "setupComplexT" => "Complex installation",
+    "setupComplexD" => "Do you need a complex network installation? No problem! Our professional service is ready to help you and implement your installation quickly and efficiently.",
+    "installationT" => "Installation - do it yourself or with a professional?",
+    "installationSelfT" => "Install the Internet yourself",
+    "installationSelfD" => "If you prefer to install your Internet yourself, we will provide you with detailed instructions and support by phone or e-mail.",
+    "installationProT" => "Installation by a professional",
+    "installationProD" => "If you would rather have an expert install your network, book our professional installation service and let us help you set up your devices.",
+
+    "street" => "Street",
+    "streetPlaceholder" => "Some Ave.",
+    "number" => "Number",
+    "numberPlaceholder" => "1",
+    "postal" => "Postal Code",
+    "postalPlaceholder" => "8000",
+    "place" => "Place",
+    "placePlaceholder" => "Zürich",
+    "search" => "Search"
+];

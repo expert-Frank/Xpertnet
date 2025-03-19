@@ -1,0 +1,35 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  image: docker:stable
+  services:
+    - name: "docker:dind"
+      entrypoint: ["env", "-u", "DOCKER_HOST"]
+      command: ["dockerd-entrypoint.sh"]
+      alias: docker
+  variables:
+    GIT_SUBMODULE_STRATEGY: normal
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+  before_script:
+    - cp ${ENV} .env
+  script:
+    - docker build --cache-from "$CI_REGISTRY/$CI_REGISTRY_IMAGE:latest" -t "$CI_REGISTRY/$CI_REGISTRY_IMAGE:latest" ./
+    - docker push "$CI_REGISTRY/$CI_REGISTRY_IMAGE:latest"
+  environment:
+    name: production
+  only:
+    - main
+
+deploy:
+  stage: deploy
+  image: alpine:latest
+  script:
+    - chmod og= $SSH_PRIVATE_KEY
+    - apk update && apk add openssh-client
+    - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_HOST "docker service update --force --image $CI_REGISTRY/$CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE"
+  only:
+    - main

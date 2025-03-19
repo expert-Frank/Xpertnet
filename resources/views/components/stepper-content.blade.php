@@ -1,0 +1,56 @@
+<div>
+    @if ($current === 0)
+        <div class="grid grid-cols-2 gap-4">
+            <p class="text-center italic">{{ __('steps.chooseForHome') }}</p>
+            <p class="text-center italic">{{ __('steps.chooseForBusiness') }}</p>
+            @foreach ($products as $p)
+                <x-card :active="$product === $p['title']" :title="__($p['title'])" click="setProduct('{{ $p['title'] }}')" class="{{ 'cursor-pointer border-white border ' . ($product === $p['title'] ? '' : 'hover:border-emerald-600/30') }}">
+                    <x-slot:icon>
+                        @if ($p['icon'] === 'icons.home')
+                            <x-icons.home />
+                        @else
+                            <x-icons.factory />
+                        @endif
+                    </x-slot>
+
+                    <p>{{ __($p['desc']) }}</p>
+                </x-card>
+            @endforeach
+        </div>
+    @elseif ($current === 1)
+        <p class="font-bold mb-2">{{ __('steps.routerFritz') }}</p>
+        <p class="italic mb-2">{{ __('steps.routerFritzD') }}</p>
+        <div class="grid grid-cols-2 gap-4">
+            @foreach ($routers as $r)
+                <x-card :active="$router === $r['name']" :title="__($r['name'])" click="setRouter('{{ $r['name'] }}')" class="{{ 'cursor-pointer border-white border ' . ($router === $r['name'] ? '' : 'hover:border-emerald-600/30') }}">
+                    <x-slot:icon>
+                        @if ($r['icon'] === 'icons.router')
+                            <x-icons.router />
+                        @endif
+                    </x-slot>
+
+                    <p>{{ __($r['desc']) }}</p>
+                </x-card>
+            @endforeach
+        </div>
+    @elseif ($current === 2)
+        <div class="basis-1/3 basis-2/3 hidden"></div>
+        <form wire:submit="checkAvailability" class="flex flex-wrap w-full">
+            @foreach($addressFields as $af)
+                <label class="{{ 'p-2 ' . $af['class'] }}">
+                    <span>{{ __($af['label']) }}</span>
+                    <input type="text" wire:model="{{ $af['var'] }}" class="p-2 rounded-md w-full mt-2" placeholder="{{ __($af['placeholder']) }}" />
+                    @error($af['var']) <span class="text-red-500 error">{{ $message }}</span> @enderror
+                </label>
+            @endforeach
+            <div class="p-2 basis-1">
+                <button type="submit" class="px-3 py-2 bg-lime-600 text-white font-semibold shadow-md rounded-md mt-4 flex items-center gap-2">
+                    <div wire:loading class="animate-spin">
+                        <x-icons.loader />
+                    </div>
+                    {{ __('steps.search') }}
+                </button>
+            </div>
+        </form>
+    @endif
+</div>

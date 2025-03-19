@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="181.63356mm"
+   height="40.346867mm"
+   viewBox="0 0 181.63356 40.346867"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="logo-v3.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.4463177"
+     inkscape:cx="354.69386"
+     inkscape:cy="214.33742"
+     inkscape:window-width="1920"
+     inkscape:window-height="1131"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-50.725786,-100.08302)">
+    <g
+       id="g2">
+      <path
+         style="fill:#333333;stroke:#00d3f2;stroke-width:2;stroke-linecap:square;stroke-opacity:1;marker-end:url(#Triangle);paint-order:stroke fill markers"
+         d="M 52.14,138.93 85.965,105.105"
+         id="path1" />
+      <path
+         style="fill:#333333;stroke:#00d3f2;stroke-width:2;stroke-linecap:square;stroke-opacity:1;marker-end:url(#Triangle);paint-order:stroke fill markers"
+         d="m 52.14,101.49724 33.825,33.825"
+         id="path2" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:35.1458px;font-family:Inter;-inkscape-font-specification:'Inter, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;letter-spacing:-1.32292px;word-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#5ea500;stroke:#000000;stroke-width:0.721733;stroke-linecap:square;paint-order:stroke fill markers"
+       x="167.70187"
+       y="133.25658"
+       id="text2"><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:35.1458px;font-family:Inter;-inkscape-font-specification:'Inter, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:-1.32292px;fill:#000000;stroke:none;stroke-width:0.721733"
+         x="167.04042"
+         y="133.25658">Xpertnet</tspan></text>
+  </g>
+</svg>
