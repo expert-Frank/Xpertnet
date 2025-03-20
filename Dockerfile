@@ -39,7 +39,7 @@ RUN docker-php-ext-install gd
 
 # Copy existing application directory contents
 COPY . /var/www
-COPY --from=build /build/public/build /xpertnet/public/
+COPY --from=build /build/public/build /var/www/public/
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
