@@ -43,7 +43,6 @@ COPY . /var/www
 RUN mkdir -p /var/www/public/build
 COPY --from=build /build/public/build /var/www/public/build/
 COPY nginx.conf /etc/nginx/conf.d/
-RUN mkdir -p /var/run/php/
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
