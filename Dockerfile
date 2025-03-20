@@ -28,7 +28,8 @@ RUN apt-get update && apt-get install -y \
     curl \
     libonig-dev \
     libzip-dev \
-    libgd-dev
+    libgd-dev \
+    nginx
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -41,6 +42,7 @@ RUN docker-php-ext-install gd
 COPY . /var/www
 RUN mkdir -p /var/www/public/build
 COPY --from=build /build/public/build /var/www/public/build/
+COPY nginx.conf /etc/nginx/conf.d/
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -58,4 +60,4 @@ USER www
 
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
-CMD ["php-fpm"]
+CMD ["bash", "entrypoint.sh"]
