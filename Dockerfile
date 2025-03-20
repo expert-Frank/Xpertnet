@@ -50,7 +50,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer install
 
 # Create Dummy Database
-sqlite3 database/database.sqlite "VACUUM;"
+RUN sqlite3 database/database.sqlite "VACUUM;"
 
 # Add user for laravel application
 #RUN groupadd -g 1000 www
