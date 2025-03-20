@@ -1,6 +1,6 @@
 #!/bin/bash
 
-php artisan migrate -n
+php artisan migrate --force
 
 nginx &
 php-fpm

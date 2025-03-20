@@ -51,7 +51,7 @@ RUN composer install
 
 # Create Dummy Database
 RUN sqlite3 database/database.sqlite "VACUUM;"
-RUN chmod 775 database/database.sqlite
+RUN chmod 777 database/database.sqlite
 
 # Add user for laravel application
 #RUN groupadd -g 1000 www
