@@ -9,7 +9,7 @@
         @viteReactRefresh
         @vite(['resources/css/app.css', 'resources/ts/app.tsx'])
     </head>
-    <body class="bg-neutral-50">
+    <body class="bg-neutral-50 dark:bg-neutral-800">
         <x-nav />
 
         {{ $slot }}

@@ -1,4 +1,4 @@
-<div>
+<div class="text-black dark:text-neutral-100">
     @if ($current === 0)
         <div class="grid grid-cols-2 gap-4">
             <p class="text-center italic">{{ __('steps.chooseForHome') }}</p>
@@ -39,12 +39,13 @@
             @foreach($addressFields as $af)
                 <label class="{{ 'p-2 ' . $af['class'] }}">
                     <span>{{ __($af['label']) }}</span>
-                    <input type="text" wire:model="{{ $af['var'] }}" class="p-2 rounded-md w-full mt-2" placeholder="{{ __($af['placeholder']) }}" />
+                    <input type="text" wire:model="{{ $af['var'] }}" class="p-2 rounded-md w-full mt-2 dark:bg-neutral-700" placeholder="{{ __($af['placeholder']) }}" />
                     @error($af['var']) <span class="text-red-500 error">{{ $message }}</span> @enderror
                 </label>
             @endforeach
             <div class="p-2 basis-1">
                 <button type="submit" class="px-3 py-2 bg-lime-600 text-white font-semibold shadow-md rounded-md mt-4 flex items-center gap-2">
+                    <svg wire:loading.remove xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
                     <div wire:loading class="animate-spin">
                         <x-icons.loader />
                     </div>
