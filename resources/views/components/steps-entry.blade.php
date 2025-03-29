@@ -1,6 +1,6 @@
 <div class="flex gap-2 -ml-[38px] items-start mb-4 mt-8">
     <div class="relative">
-        <div class="bg-emerald-500 rounded-full w-10 h-10 h-fit border-4 border-white z-10 absolute shadow-md shadow-emerald-500/50"></div>
+        <div class="bg-emerald-500 rounded-full w-10 h-10 border-4 border-white z-10 absolute shadow-md shadow-emerald-500/50"></div>
         <span class="w-10 h-10 flex items-center justify-center text-white relative z-20 font-semibold">{{ $num }}</span>
     </div>
     <div>
