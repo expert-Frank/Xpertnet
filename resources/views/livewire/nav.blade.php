@@ -1,0 +1,19 @@
+<nav class="w-full h-16 shadow-md shadow-emerald-600/30 dark:shadow-none bg-white px-4 py-2 flex justify-center dark:bg-neutral-900 dark:text-white text-black items-center">
+    <!-- Desktop Navigation -->
+    <div class="flex-1 lg:flex gap-4 items-center hidden">
+        <a href="#steps">{{ __("messages.how") }}</a>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="flex flex-1 lg:hidden" id="mobile-nav"></div>
+
+    <!-- Logo -->
+    <a class="flex-none w-12 flex justify-center" href={{ "/$locale" }}>
+        <img src="/signet.svg" class="h-full drop-shadow-lg hover:rotate-[72deg] transition-all duration-150 relative z-50" />
+    </a>
+
+    <!-- Language -->
+    <div class="flex-1 flex items-center justify-end gap-4">
+        <a href={{ $locale == "en" ? "/de" : "/en" }}>{{ $locale == "en" ? "DE" : "EN" }}</a>
+    </div>
+</nav>

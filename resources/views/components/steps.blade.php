@@ -3,7 +3,7 @@
         <img src="/img/pentagons.svg" class="h-full absolute" />
         <img src="/img/pentagons.svg" class="rotate-180 h-full absolute blur-lg" />
     </div>-->
-    <div class="flex-1 relative mt-8 w-full flex flex-col justify-between">
+    <div class="flex-1 relative mt-8 w-full flex flex-col justify-between hidden lg:block">
         <div></div>
         <div></div>
         <img src="/img/pentagons.svg" class="object-cover h-full w-full rotate-180 blur-xl absolute" />
@@ -11,7 +11,7 @@
         <img src="/img/pentagons-2.svg" class="object-cover h-full w-full blur-sm absolute" />
         <img src="/img/pentagons.svg" class="object-cover w-full h-full absolute" />
     </div>
-    <div class="flex-1 ml-auto text-black dark:text-neutral-100">
+    <div class="flex-1 ml-auto text-black dark:text-neutral-100 p-4">
         <div class="border-l-4 p-4 border-emerald-700 ml-4">
             <x-steps-entry num="1" title="{{ __('steps.chooseT') }}">
                 <p>{{ __('steps.chooseD') }}</p>

@@ -1,6 +1,6 @@
 <div class="text-black dark:text-neutral-100">
     @if ($current === 0)
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <p class="text-center italic">{{ __('steps.chooseForHome') }}</p>
             <p class="text-center italic">{{ __('steps.chooseForBusiness') }}</p>
             @foreach ($products as $p)
@@ -20,7 +20,7 @@
     @elseif ($current === 1)
         <p class="font-bold mb-2">{{ __('steps.routerFritz') }}</p>
         <p class="italic mb-2">{{ __('steps.routerFritzD') }}</p>
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
             @foreach ($routers as $r)
                 <x-card :active="$router === $r['name']" :title="__($r['name'])" click="setRouter('{{ $r['name'] }}')" class="{{ 'cursor-pointer border-white border ' . ($router === $r['name'] ? '' : 'hover:border-emerald-600/30') }}">
                     <x-slot:icon>

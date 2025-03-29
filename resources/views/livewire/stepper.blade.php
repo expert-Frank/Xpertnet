@@ -1,4 +1,4 @@
-<div class="flex gap-4">
+<div class="flex gap-4 flex-col lg:flex-row p-4">
     <div class="flex-none">
         <x-stepper-header-element num=0 title="{{ __('steps.chooseT') }}" desc="{{ __('steps.chooseD') }}" current="{{ $step }}" />
         <x-stepper-header-element num=1 title="{{ __('steps.routerT') }}" desc="{{ __('steps.routerD') }}" current="{{ $step }}" />
