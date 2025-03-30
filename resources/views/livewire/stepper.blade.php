@@ -1,4 +1,4 @@
-<div>
+<section class="shadow-md mb-0" id="stepper">
     <div class="flex gap-4 flex-col lg:flex-row p-6 max-w-[1200px] mx-auto my-24">
         <div class="flex-none">
             <x-stepper-header-element num=0 title="{{ __('steps.chooseT') }}" desc="{{ __('steps.chooseD') }}" current="{{ $step }}" />
@@ -13,4 +13,4 @@
             <x-stepper-controls :current="$step" />
         </div>
     </div>
-</div>
+</section>

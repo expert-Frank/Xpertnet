@@ -20,7 +20,7 @@
         <div class="border-l-4 pl-4 border-emerald-700 ml-4 py-24">
             <div class="flex gap-4 -ml-[38px] items-start">
                 <img src="/img/pentagon.svg" class="w-10 hover:rotate-72 duration-250 drop-shadow-lg" />
-                <h2 class="font-bold text-5xl -mt-2">
+                <h2 class="font-bold text-3xl lg:text-5xl mt-0 lg:-mt-2">
                     {{ __('steps.title') }}
                 </h2>
             </div>

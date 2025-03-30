@@ -1,5 +1,12 @@
-<section class="my-8 p-6" id="contact">
-    <form wire:submit="submit" class="w-full max-w-[512px] mx-auto text-black dark:text-white grid grid-cols-1 lg:grid-cols-2 gap-4">
+<section class="p-6 block lg:flex flex-row-reverse justify-center items-center gap-36" id="contact">
+   <div class="flex gap-4 items-start text-black dark:text-neutral-100">
+        <img src="/img/pentagon.svg" class="w-10 hover:rotate-72 duration-250 drop-shadow-lg" />
+        <h2 class="font-bold text-3xl lg:text-5xl mt-0 lg:-mt-2">
+            {{ __('contact.title') }}
+        </h2>
+    </div>
+    <div class="py-4"></div>
+    <form wire:submit="submit" class="w-full max-w-[512px] text-black dark:text-white grid grid-cols-1 lg:grid-cols-2 gap-4">
         <label class="block w-full">
             <span>{{ __('contact.name')}}</span>
             <input class="p-2 rounded-md bg-neutral-100 dark:bg-neutral-700 outline-none focus:ring-2 focus:ring-emerald-600 dark:focus:ring-lime-400 w-full" wire:model="name"  placeholder="{{ __('contact.name_placeholder') }}" />

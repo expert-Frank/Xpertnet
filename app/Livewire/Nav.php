@@ -24,6 +24,10 @@ class Nav extends Component
                 "anchor" => "#steps"
             ],
             [
+                "label" => __("stepper.title"),
+                "anchor" => "#stepper"
+            ],
+            [
                 "label" => __("contact.title"),
                 "anchor" => "#contact"
             ]

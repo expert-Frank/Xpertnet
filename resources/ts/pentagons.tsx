@@ -16,5 +16,5 @@ const blurs = [
 
 Array(4).fill(0).forEach((_, i) => {
     const root = createRoot(document.getElementById(`pentagons-${i+1}`));
-    root.render(<Pentagons parallax={i * 300} file={`img/pentagons-${i+1}.svg`} blur={blurs[i]} />);
+    root.render(<Pentagons parallax={i * 200} file={`img/pentagons-${i+1}.svg`} blur={blurs[i]} />);
 });
