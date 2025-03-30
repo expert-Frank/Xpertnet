@@ -1,4 +1,4 @@
-<div class="w-full flex relative overflow-hidden gap-8 shadow-md">
+<section class="w-full flex relative overflow-hidden gap-8 shadow-md" id="steps">
     <!--<div class="flex-1 relative w-full flex flex-col justify-between hidden lg:block">
         <div></div>
         <div></div>
@@ -17,7 +17,7 @@
         <div class="h-full w-full object-cover bg-neutral-100/50 dark:bg-neutral-800/50 absolute blur-lg"></div>
     </div>
     <div class="flex-1 ml-auto text-black dark:text-neutral-100 px-6">
-        <div class="border-l-4 p-4 border-emerald-700 ml-4 py-24">
+        <div class="border-l-4 pl-4 border-emerald-700 ml-4 py-24">
             <div class="flex gap-4 -ml-[38px] items-start">
                 <img src="/img/pentagon.svg" class="w-10 hover:rotate-72 duration-250 drop-shadow-lg" />
                 <h2 class="font-bold text-5xl -mt-2">
@@ -60,4 +60,4 @@
             </x-steps-entry>
         </div>
     </div>
-</div>
+</section>

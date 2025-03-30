@@ -1,5 +1,6 @@
 <?php
 
 return [
-    "how" => "Wie funktioniert's?",
+    "source" => "Quelltext dieser Webseite",
+    "createdBy" => "Von [name] mit [heart] programmiert"
 ];

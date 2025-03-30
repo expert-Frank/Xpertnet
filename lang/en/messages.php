@@ -1,5 +1,6 @@
 <?php
 
 return [
-    "how" => "How does it work?",
+    "source" => "Source code of this website",
+    "createdBy" => "Created with [heart] by [name] "
 ];

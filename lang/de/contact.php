@@ -1,6 +1,7 @@
 <?php
 
 return [
+    "title" => "Kontakt",
     "name" => "Name",
     "name_placeholder" => "Maxime Musterfrau",
     "email" => "Email",
