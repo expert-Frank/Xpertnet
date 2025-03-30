@@ -1,6 +1,7 @@
 <?php
 
 return [
+    "title" => "How does it work?",
     "chooseT" => "Choose your product",
     "chooseD" => "Choose the Internet offer that best suits your needs - whether VDSL or fiber, for your home or for your business.",
     "chooseForHome" => "For Home Use",

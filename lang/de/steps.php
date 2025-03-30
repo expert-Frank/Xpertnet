@@ -1,6 +1,7 @@
 <?php
 
 return [
+    "title" => "Wie funktioniert's?",
     "chooseT" => "Wählen Sie Ihr Produkt",
     "chooseD" => "Wählen Sie das Internet-Angebot, das am besten zu Ihren Bedürfnissen passt – ob VDSL oder Fiber (Glasfaser), für Zuhause oder für Ihr Unternehmen.",
     "chooseForHome" => "Für Zuhause",

@@ -1,4 +1,4 @@
-<div class="my-8 p-4">
+<div class="my-8 p-6">
     <form wire:submit="submit" class="w-full max-w-[512px] mx-auto text-black dark:text-white grid grid-cols-1 lg:grid-cols-2 gap-4">
         <label class="block w-full">
             <span>{{ __('contact.name')}}</span>

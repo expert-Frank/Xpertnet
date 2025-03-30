@@ -1,4 +1,4 @@
-<nav class="w-full h-16 shadow-md shadow-emerald-600/30 dark:shadow-none bg-white px-4 py-2 flex justify-center dark:bg-neutral-900 dark:text-white text-black items-center">
+<nav class="w-full h-16 shadow-md shadow-emerald-600/30 dark:shadow-none bg-white px-6 py-2 flex justify-center dark:bg-neutral-900 dark:text-white text-black items-center">
     <!-- Desktop Navigation -->
     <div class="flex-1 lg:flex gap-4 items-center hidden">
         <a href="#steps">{{ __("messages.how") }}</a>

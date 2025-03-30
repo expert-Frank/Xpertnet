@@ -21,11 +21,7 @@ export default function Hero({ nodeColor, edgeColor, speed, maxNodes, connection
     }, []);
 
     return (
-        <Parallax blur={10} strength={parallax} className="w-full h-full">
-            <Background className="w-full h-full">
-                <div ref={containerRef} className="w-screen h-screen" />
-            </Background>
-        </Parallax>
+        <div ref={containerRef} className="w-screen h-full" />
     );
 }
 

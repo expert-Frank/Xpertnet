@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class Stepper extends Component
 {
-    public $step = 2;
+    public $step = 0;
     public $router = "steps.routerVDSL5530";
     public $product = "steps.chooseOptionVDSLHome";
 
