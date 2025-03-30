@@ -4,10 +4,7 @@ import MovingNetworkAnimation from 'moving-network-animation';
 import { Parallax, Background } from 'react-parallax';
 
 export default function Pentagons({ parallax, file, blur }: { parallax: number, file: string, blur: number }) {
-    console.log(file);
-    return (
-        <Parallax blur={0} strength={parallax} bgImage={file} className={`h-full overflow-x-visible ${blur}`} />
-    );
+    return <Parallax blur={0} strength={parallax} bgImage={file} className={`h-full overflow-x-visible ${blur}`} />;
 }
 
 const blurs = [

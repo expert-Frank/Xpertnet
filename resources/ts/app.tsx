@@ -1,4 +1,4 @@
 import './bootstrap';
 import './hero';
-import './mobileNav';
+//import './mobileNav';
 import './pentagons';
