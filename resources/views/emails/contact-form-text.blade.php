@@ -1,1 +1,5 @@
-asdf
+Neue Nachricht von {{ $name }}
+
+---
+
+{{ $msg }}

@@ -50,12 +50,12 @@
             </div>
         </div>
         @if($sent === true)
-            <div class="alert alert-success block w-full bg-emerald-600/30 rounded-md p-4 mt-4 flex gap-4 items-start">
+            <div class="alert alert-success block w-full bg-emerald-600/30 rounded-md p-4 mt-4 flex gap-4 items-start col-span-1 lg:col-span-2">
                 <svg class="text-emerald-600" xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-check"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l10 -10" /></svg>
                 {{ __('contact.sent') }}
             </div>
         @endif
-        <button class="px-3 py-2 rounded-md bg-emerald-600 text-white font-semibold shadow-md mt-4 flex gap-2 hover:bg-emerald-500 outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 dark:focus:ring-lime-400 w-fit cursor-pointer" type="submit">
+        <button class="px-3 py-2 rounded-md bg-emerald-600 text-white font-semibold shadow-md mt-4 flex gap-2 hover:bg-emerald-500 outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 dark:focus:ring-lime-400 w-fit cursor-pointer col-span-1 lg:col-span-2" type="submit">
             {{ __('contact.submit') }}
             <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-send-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4.698 4.034l16.302 7.966l-16.302 7.966a.503 .503 0 0 1 -.546 -.124a.555 .555 0 0 1 -.12 -.568l2.468 -7.274l-2.468 -7.274a.555 .555 0 0 1 .12 -.568a.503 .503 0 0 1 .546 -.124z" /><path d="M6.5 12h14.5" /></svg>
         </button>
