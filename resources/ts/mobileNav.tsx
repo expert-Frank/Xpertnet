@@ -18,12 +18,11 @@ export default function MobileNav() {
     console.log(opened);
 
     useEffect(() => {
+        const ele = document.querySelector("main");
         if(opened) {
-            document.body.classList.add('overflow-y-hidden');
-            document.body.classList.add('h-screen');
+            ele.classList.add('hidden');
         } else {
-            document.body.classList.remove('overflow-y-hidden');
-            document.body.classList.remove('h-screen');
+            ele.classList.remove('hidden');
         }
     }, [opened]);
 
