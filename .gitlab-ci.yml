@@ -5,6 +5,7 @@ deploy:
   stage: deploy
   image: node:20-alpine
   script:
+    - rm -rf .git
     - npm i --legacy-peer-deps
     - npm run build
     - apk add sshpass zip lftp curl
