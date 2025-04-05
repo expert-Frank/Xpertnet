@@ -13,7 +13,7 @@ class ExtractController extends Controller
     {
         $zip = new \ZipArchive;
         if ($zip->open('/var/www/vhosts/expertfrank.ch/xpertnet.ch/xpertnet.zip') === TRUE) {
-            $zip->extractTo('/xpertnet.ch');
+            $zip->extractTo('/var/www/vhosts/expertfrank.ch/xpertnet.ch');
             $zip->close();
             return "OK";
         } else {
