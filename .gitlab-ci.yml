@@ -7,9 +7,9 @@ deploy:
   script:
     - npm i --legacy-peer-deps
     - npm run build
-    - apk install zip sftp
+    - pkg install sshpass zip ncftp
     - zip -r xpertnet.zip .
-    - sshpass -p "$FTP_PASS" sftp "$FTP_USER@$FTP_HOST:xpertnet.ch" <<< $'put xpertnet.zip'
+    - ncftpput -u $FTP_USER -p $FTP_PASS $FTP_HOST xpertnet.ch put xpertnet.zip
   environment:
     name: production
   only:
