@@ -9,7 +9,7 @@ deploy:
     - npm run build
     - apk add sshpass zip ncftp
     - zip -r xpertnet.zip .
-    - ncftpput -u $FTP_USER -p $FTP_PASS $FTP_HOST xpertnet.ch put xpertnet.zip
+    - lftp -c "set ftp:ssl-protect-data true; set ftp:ssl-force true; set ftp:ssl-auth TLS; set ssl:verify-certificate no; open -u $FTP_USER,$FTP_PASS $FTP_HOST; put -O xpertnet.ch xpertnet.zip; bye"
   environment:
     name: production
   only:
