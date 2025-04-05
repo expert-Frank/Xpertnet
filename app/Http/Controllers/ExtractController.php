@@ -12,10 +12,12 @@ class ExtractController extends Controller
     public function extract(Request $request)
     {
         $zip = new \ZipArchive;
-        if ($zip->open('xpertnet.zip') === TRUE) {
+        if ($zip->open('/xpertnet.ch/xpertnet.zip') === TRUE) {
             $zip->extractTo('/xpertnet.ch');
             $zip->close();
+            return "OK";
+        } else {
+            return "Error";
         }
-        return "OK";
     }
 }
