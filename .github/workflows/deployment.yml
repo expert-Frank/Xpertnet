@@ -5,7 +5,7 @@ jobs:
   Deployment:
     runs-on: node:20-alpine
     steps:
-      - npm i --legacy-peer-deps
-      - npm run build
-      - pkg install zip
-      - zip -r xpertnet.zip .
+      - run: npm i --legacy-peer-deps
+      - run: npm run build
+      - run: pkg install zip
+      - run: zip -r xpertnet.zip .
