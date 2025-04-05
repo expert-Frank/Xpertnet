@@ -4,7 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>{{ $title ?? 'Page Title' }}</title>
+        <title>{{ __('messages.title') }}</title>
+
+        <link rel="icon" href="{{ url('/favicon.ico') }}">
 
         @viteReactRefresh
         @vite(['resources/css/app.css', 'resources/ts/app.tsx'])
