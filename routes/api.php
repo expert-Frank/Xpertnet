@@ -34,3 +34,14 @@ Route::get('/plans', function (Request $request) {
 
   return $json;
 });
+
+Route::get('/extract', function (Request $request) {
+  $zip = new \ZipArchive;
+  if ($zip->open('/var/www/vhosts/expertfrank.ch/xpertnet.ch/xpertnet.zip') === TRUE) {
+    $zip->extractTo('/var/www/vhosts/expertfrank.ch/xpertnet.ch');
+    $zip->close();
+    return "OK";
+  } else {
+    return "Error";
+  }
+});

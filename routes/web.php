@@ -10,6 +10,4 @@ use App\Http\Controllers\ExtractController;
 
 Route::get('/', function () {})->middleware(LocaleMiddleware::class);
 
-Route::get('/extract', [ExtractController::class, 'extract']);
-
 Route::get('/{locale}', Main::class);
