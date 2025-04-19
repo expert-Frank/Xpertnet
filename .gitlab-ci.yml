@@ -6,7 +6,7 @@ deploy:
   image: php:8.3-alpine
   script:
     - rm -rf .git
-    - apk add --update sshpass zip lftp curl bash python nodejs-current npm
+    - apk add --update sshpass zip lftp curl bash python3 nodejs-current npm
     - npm i --legacy-peer-deps
     - npm run build
     - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
