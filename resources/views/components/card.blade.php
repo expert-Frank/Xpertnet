@@ -6,7 +6,7 @@
     "icon" => ""
 ])
 
-<div class="{{ 'bg-white dark:bg-neutral-700 text-black dark:text-neutral-100 rounded-md p-4 flex gap-4 items-start transition-all duration-250 ' . $class . ' ' . ($active ? 'border-2 border-lime-600 dark:border-lime-600' : 'border-2 border-white dark:border-neutral-700') }}" wire:click="{{ $click }}">
+<button class="{{ 'text-left bg-white cursor-pointer dark:bg-neutral-700 text-black dark:text-neutral-100 rounded-md p-4 flex gap-4 items-start transition-all duration-250 border-2 ' . $class . ' ' . ($active ? 'border-lime-600 dark:border-lime-600' : 'border-white dark:border-neutral-700') }}" wire:click="{{ $click }}">
     <div class="text-emerald-600">
         {{ $icon }}
     </div>
@@ -16,4 +16,4 @@
             {{ $slot }}
         </div>
     </div>
-</div>
+</button>

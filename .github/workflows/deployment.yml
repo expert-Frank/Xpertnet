@@ -2,9 +2,9 @@ name: Deployment to ServerTown
 run-name: Deploying the Xpernet website to the PHP servers of ServerTown
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   Deployment:

@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Log;
 
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -11,7 +12,7 @@ class Stepper extends Component
 {
     public $step = 0;
     public $router = "steps.routerVDSL5530";
-    public $product = "steps.chooseOptionVDSLHome";
+    // public $product = "steps.chooseOptionVDSLHome";
 
     #[Validate('required')]
     public $street = "";
@@ -21,6 +22,9 @@ class Stepper extends Component
     public $postal = "";
     #[Validate('required')]
     public $place = "";
+
+    public $response = null;
+    public $product = null;
 
     public $products = array(
         [
@@ -113,10 +117,40 @@ class Stepper extends Component
     {
         $this->validate();
 
-        $locale = App::currentLocale();
-        error_log($locale);
+        //$locale = App::currentLocale();
 
-        $res = get_file_contents("https://checker.vadian.net/start.aspx");
+        $url = "https://portal.nexphone.ch/api/psuite/reseller/sales/network/access/qualification";
+        $data = [
+            "City" => $this->place,
+            "PostalCode" => $this->postal,
+            "StreetNumber" => $this->number,
+            "StreetName" => $this->street,
+        ];
+        $options = [
+            'http' => [
+                'header' => "Content-type: application/json\r\n",
+                'method' => 'POST',
+                'content' => json_encode($data),
+            ],
+        ];
+
+        $context = \stream_context_create($options);
+        $res = \file_get_contents($url, false, $context);
+
+        if ($res === false) {
+            Log::error("The request for availability data failed.");
+            Log::error("Data: " . \json_encode($data));
+            return;
+        }
+
+        $result = json_decode($res);
+
+        $available = array_filter($result->List, function($v) { return $v->Available; });
+
+        $this->step++;
+
+        $this->response = $available;
+        $this->product = $available[0];
     }
 
     public function render()

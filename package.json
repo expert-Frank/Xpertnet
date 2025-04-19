@@ -1,28 +1,37 @@
 {
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "build": "vite build",
-        "dev": "vite"
-    },
-    "devDependencies": {
-        "@vitejs/plugin-react": "^4.3.4",
-        "autoprefixer": "^10.4.20",
-        "axios": "^1.7.4",
-        "concurrently": "^9.0.1",
-        "laravel-vite-plugin": "^1.2.0",
-        "postcss": "^8.4.47",
-        "tailwindcss": "^4.0.17",
-        "vite": "^6.0.11"
-    },
-    "dependencies": {
-        "@inertiajs/inertia-react": "^0.8.1",
-        "@inertiajs/react": "^2.0.5",
-        "@tailwindcss/postcss": "^4.0.17",
-        "@tailwindcss/vite": "^4.0.17",
-        "moving-network-animation": "^0.0.8",
-        "react": "^19.0.0",
-        "react-dom": "^19.0.0",
-        "react-parallax": "^3.5.2"
-    }
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "axios": "^1.8.4",
+    "concurrently": "^9.0.1",
+    "laravel-vite-plugin": "^1.2.0",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^4.0.17",
+    "typescript": "^5.8.3",
+    "vite": "^6.0.11"
+  },
+  "dependencies": {
+    "@inertiajs/inertia-react": "^0.8.1",
+    "@inertiajs/react": "^2.0.5",
+    "@radix-ui/react-dialog": "^1.1.7",
+    "@tabler/icons-react": "^3.31.0",
+    "@tailwindcss/postcss": "^4.0.17",
+    "@tailwindcss/vite": "^4.0.17",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "lucide-react": "^0.488.0",
+    "moving-network-animation": "^0.0.8",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-parallax": "^3.5.2",
+    "tailwind-merge": "^3.2.0",
+    "tw-animate-css": "^1.2.5"
+  }
 }

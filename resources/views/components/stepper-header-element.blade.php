@@ -6,7 +6,6 @@
         </button>
         <div class="mt-3">
             <h3 class="mb-1">{{ $title }}</h3>
-            <p class="max-w-48 font-medium text-sm text-neutral-500 dark:text-neutral-400 hidden lg:inline-block">{{ $desc }}</p>
         </div>
     </div>
 </div>
