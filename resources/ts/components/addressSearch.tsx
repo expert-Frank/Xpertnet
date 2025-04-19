@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import {
   Command,
@@ -12,7 +12,7 @@ import {
   CommandShortcut,
 } from "@/components/ui/command";
 
-import { IconMapPin, IconX } from "@tabler/icons-react";
+import { IconMapPin, IconX, IconLoader2 } from "@tabler/icons-react";
 
 import useDebouncedState from "@/hooks/useDebouncedState";
 import useTranslation from "@/hooks/useTranslation";
@@ -28,12 +28,19 @@ export interface Match {
 export default function AddressSearch({
   address,
   setAddress,
+  loading,
+  setLoading,
 }: {
   address: Match | null;
   setAddress: (m: Match) => void;
+  loading: boolean;
+  setLoading: (loading: boolean) => void;
 }) {
   const [matches, setMatches] = useState<Match[]>([]);
   const [query, setQuery] = useDebouncedState<string>("", 200);
+  const inputRef = useRef(null);
+
+  console.log("query", query);
 
   const t = useTranslation();
 
@@ -69,6 +76,8 @@ export default function AddressSearch({
   useEffect(() => {
     if (query.length < 3) return;
 
+    setLoading(true);
+
     (async () => {
       const res = await axios.get(
         "https://api3.geo.admin.ch/rest/services/ech/SearchServer",
@@ -93,26 +102,39 @@ export default function AddressSearch({
 
   return (
     <Command
-      value={query}
-      onChange={(e) => setQuery(e.target.value)}
       shouldFilter={false}
+      label={t('stepper.address')}
     >
       {!address ? (
-        <CommandInput placeholder={t("stepper.addressPlaceholder")} />
+        <CommandInput
+          defaultValue={query}
+          onValueChange={setQuery}
+          placeholder={t("stepper.addressPlaceholder")}
+          className="text-lg"
+          ref={inputRef}
+        />
       ) : (
         <div className="p-2 rounded-md flex gap-2 items-center text-sm">
           <IconMapPin className="text-emerald-600" />
           <div className="flex-1">{formatAddress(address)}</div>
-          <button
-            onClick={() => setAddress(null)}
-            className="cursor-pointer hover:text-black text-neutral-500"
-          >
-            <IconX />
-          </button>
+          {loading ? (
+            <IconLoader2 className="animate-spin text-emerald-600" />
+          ) : (
+            <button
+              onClick={() => {
+                setAddress(null);
+                inputRef.current.value = "";
+              }}
+              className="cursor-pointer hover:text-black text-neutral-500"
+            >
+              <IconX />
+            </button>
+          )}
         </div>
       )}
       {!address && query && (
         <CommandList>
+          <CommandEmpty>{t('stepper.noResultsFound')}</CommandEmpty>
           <CommandGroup heading="Suggestions">
             {matches.map((match, i) => (
               <CommandItem
