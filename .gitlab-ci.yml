@@ -6,11 +6,7 @@ deploy:
   image: php:8.3-alpine
   script:
     - rm -rf .git
-    - apk add sshpass zip lftp curl bash
-    - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
-    - export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    - nvm install 20
-    - nvm use 20
+    - apk add --update sshpass zip lftp curl bash python nodejs-current npm
     - npm i --legacy-peer-deps
     - npm run build
     - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
