@@ -1,0 +1,130 @@
+{
+  "plans": [
+    {
+      "title": "Xpertnet 50/50",
+      "descriptionDE": "blubb",
+      "descriptionEN": "blubb",
+      "up": 50000,
+      "down": 50000,
+      "price": 36,
+      "availability": {
+        "VDSL": true,
+        "Fibre BX": false,
+        "Fibre XGS-PON": false
+      }
+    },
+    {
+      "title": "Xpertnet 100/100",
+      "descriptionDE": "blubb",
+      "descriptionEN": "blubb",
+      "up": 100000,
+      "down": 100000,
+      "price": 37,
+      "availability": {
+        "VDSL": true,
+        "Fibre BX": true,
+        "Fibre XGS-PON": true
+      }
+    },
+    {
+      "title": "Xpertnet 200/200",
+      "descriptionDE": "blubb",
+      "descriptionEN": "blubb",
+      "up": 200000,
+      "down": 200000,
+      "price": 47,
+      "availability": {
+        "VDSL": true,
+        "Fibre BX": false,
+        "Fibre XGS-PON": false
+      }
+    },
+    {
+      "title": "Xpertnet 500/500",
+      "descriptionDE": "blubb",
+      "descriptionEN": "blubb",
+      "up": 500000,
+      "down": 500000,
+      "price": 49,
+      "availability": {
+        "VDSL": false,
+        "Fibre BX": true,
+        "Fibre XGS-PON": true
+      }
+    },
+    {
+      "title": "Xpertnet 1000/1000",
+      "descriptionDE": "blubb",
+      "descriptionEN": "blubb",
+      "up": 1000000,
+      "down": 1000000,
+      "price": 57,
+      "availability": {
+        "VDSL": false,
+        "Fibre BX": true,
+        "Fibre XGS-PON": true
+      }
+    },
+    {
+      "title": "Xpertnet 10000/10000",
+      "descriptionDE": "blubb",
+      "descriptionEN": "blubb",
+      "up": 10000000,
+      "down": 10000000,
+      "price": 67,
+      "availability": {
+        "VDSL": false,
+        "Fibre BX": false,
+        "Fibre XGS-PON": true
+      }
+    }
+  ],
+  "staticIP": [
+    {
+      "num": 0,
+      "price": 0
+    },
+    {
+      "num": 1,
+      "price": 10
+    },
+    {
+      "num": 4,
+      "price": 20
+    },
+    {
+      "num": 8,
+      "price": 60
+    }
+  ],
+  "routers": [
+    {
+      "name": "",
+      "descriptionDE": "Ich besitze bereits einen kompatiblen Router",
+      "descriptionEN": "I already have a compatible router",
+      "price": 0,
+      "technology": ""
+    },
+    {
+      "name": "FRITZ!Box 7530",
+      "descriptionDE": "blubb",
+      "descriptionEN": "blubb",
+      "price": 149,
+      "technology": "VDSL"
+    },
+    {
+      "name": "FRITZ!Box 5530",
+      "descriptionDE": "blubb",
+      "descriptionEN": "blubb",
+      "price": 179,
+      "technology": "Fibre BX"
+    },
+    {
+      "name": "FRITZ!Box 5530 (XGS-PON Edition)",
+      "descriptionDE": "blubb",
+      "descriptionEN": "blubb",
+      "price": 229,
+      "technology": "Fibre XGS-PON"
+    }
+  ]
+}

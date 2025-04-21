@@ -6,6 +6,8 @@ return [
     "name_placeholder" => "Maxime Musterfrau",
     "email" => "Email",
     "email_placeholder" => "maxime@musterfrau.ch",
+    "phone" => "Telefonnummer",
+    "phone_placeholder" => "079 123 45 67",
     "message" => "Nachricht",
     "message_placeholder" => "Liebes Xpertnet-Team...",
     "human" => "Ich bin ein Mensch",

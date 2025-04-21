@@ -40,8 +40,6 @@ export default function AddressSearch({
   const [query, setQuery] = useDebouncedState<string>("", 200);
   const inputRef = useRef(null);
 
-  console.log("query", query);
-
   const t = useTranslation();
 
   const parseAddress = (label: string, num: number) => {
@@ -114,18 +112,18 @@ export default function AddressSearch({
           ref={inputRef}
         />
       ) : (
-        <div className="p-2 rounded-md flex gap-2 items-center text-sm">
-          <IconMapPin className="text-emerald-600" />
+        <div className="p-2 rounded-md flex gap-2 items-center text-lg bg-white dark:bg-neutral-700 text-black dark:text-white">
+          <IconMapPin className="text-emerald-600 dark:text-emerald-400" />
           <div className="flex-1">{formatAddress(address)}</div>
           {loading ? (
-            <IconLoader2 className="animate-spin text-emerald-600" />
+            <IconLoader2 className="animate-spin text-emerald-600 dark:text-emerald-400" />
           ) : (
             <button
               onClick={() => {
                 setAddress(null);
                 inputRef.current.value = "";
               }}
-              className="cursor-pointer hover:text-black text-neutral-500"
+              className="cursor-pointer hover:text-black text-neutral-500 dark:hover:text-white"
             >
               <IconX />
             </button>

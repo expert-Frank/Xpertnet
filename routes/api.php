@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Lang;
+
+use App\Mail\Order;
 
 Route::get('/localization', function (Request $request) {
   $res = [
@@ -28,11 +31,16 @@ Route::get('/localization', function (Request $request) {
   return $res;
 });
 
-Route::get('/plans', function (Request $request) {
-  $plans_config = file_get_contents("../xpertnet-plans.json");
+Route::get('/config', function (Request $request) {
+  $plans_config = file_get_contents("../xpertnet-config.json");
   $json = json_decode($plans_config);
+  $field = $request->field;
 
-  return $json;
+  if(!$field) {
+    return $json;
+  }
+
+  return $json->$field;
 });
 
 Route::get('/extract', function (Request $request) {
@@ -44,4 +52,30 @@ Route::get('/extract', function (Request $request) {
   } else {
     return "Error";
   }
+});
+
+Route::post('/order', function (Request $request) {
+  $address = $request->address;
+  $plan = $request->plan;
+  $ips = $request->ips;
+  $router = $request->router;
+  $contact = $request->contact;
+
+  unset($plan['descriptionDE']);
+  unset($plan['descriptionEN']);
+  unset($plan['availability']);
+  unset($plan['available']['Id']);
+  unset($plan['available']['ProductCatalogCode']);
+
+  unset($router['descriptionDE']);
+  unset($router['descriptionEN']);
+
+  $plan_json = json_encode($plan, JSON_PRETTY_PRINT);
+  $ips_json = json_encode($ips, JSON_PRETTY_PRINT);
+  $router_json = json_encode($router, JSON_PRETTY_PRINT);
+
+  Mail::to(env('MAIL_RECEIVER', ''))->send(new Order($address, $plan_json, $ips_json, $router_json, $contact));
+  Log::info('Order from ' . $contact['name'] . ' <' . $contact['email'] . '> sent to ' . env('MAIL_RECEIVER', '[not supplied]'));
+
+  return "OK";
 });
