@@ -15,6 +15,8 @@
         <meta name="twitter:description" content="{{ __('messages.title') }}">
         <meta name="twitter:image" content="https://xpertnet.ch/og-image.png">
 
+        <meta name="google-site-verification" content="w_JmptXlcuxi8SIKIA_LwFAPkhRsFAzC0RYwKOKFtLI" />
+
         <link rel="icon" href="{{ url('/favicon.ico') }}">
 
         @viteReactRefresh
