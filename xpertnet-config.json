@@ -1,4 +1,12 @@
 {
+  "about": {
+    "de": [
+      "blub blubb blubb"
+    ],
+    "en": [
+      "blub blubb blubb"
+    ]
+  },
   "plans": [
     {
       "title": "Xpertnet 50/50",

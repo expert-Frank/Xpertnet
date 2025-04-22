@@ -5,5 +5,6 @@
         <x-steps />
         <livewire:stepper />
         <livewire:contact />
+        <x-footer :about="$about" />
     </div>
 </main>

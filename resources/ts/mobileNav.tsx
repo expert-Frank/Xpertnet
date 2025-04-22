@@ -15,8 +15,6 @@ export default function MobileNav() {
   const [navItems, setNavItems] = useState<NavItem[]>([]);
   const [imprint, setImprint] = useState<Imprint>({});
 
-  console.log(opened);
-
   useEffect(() => {
     const ele = document.querySelector("main");
     if (opened) {
