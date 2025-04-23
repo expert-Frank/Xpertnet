@@ -1,4 +1,4 @@
-<footer class="inset-shadow-emerald-600/30 inset-shadow-sm px-6 py-12">
+<footer class="inset-shadow-emerald-600/30 inset-shadow-sm px-6 py-12 text-black dark:text-white">
   <div class="max-w-[1200px] mx-auto">
     <div class="flex gap-4 items-start text-black dark:text-neutral-100 group">
       <img src="/img/pentagon.svg" class="w-10 group-hover:rotate-72 duration-250 drop-shadow-lg" />

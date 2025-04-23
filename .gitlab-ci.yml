@@ -11,6 +11,7 @@ deploy:
     - npm run build
     - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
     - composer install
+    - sed -i 's/protected/public/g' vendor/alfrasc/laravel-matomo-tracker/src/LaravelMatomoTracker.php
     - zip -r xpertnet.zip .
     - lftp -c "set ftp:ssl-protect-data true; set ftp:ssl-force true; set ftp:ssl-auth TLS; set ssl:verify-certificate no; open -u $FTP_USER,$FTP_PASS $FTP_HOST; put -O xpertnet.ch xpertnet.zip; bye"
     - curl -X GET https://xpertnet.ch/extract
