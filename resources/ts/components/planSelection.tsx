@@ -102,7 +102,9 @@ export default function PlanSelection({
   setPlanSelection: (plan: Plan | null) => void;
 }) {
   const [plans, setPlans] = useState<Plan[]>([]);
-  const [availabilities, setAvailabilities] = useState<Availability[]>([]);
+  const [availabilities, setAvailabilities] = useState<Availability[] | null>(
+    null,
+  );
   const [selectedPlan, setSelectedPlan] = useState<number | null>(null);
 
   const t = useTranslation();
@@ -113,7 +115,7 @@ export default function PlanSelection({
   useEffect(() => {
     // get available plans from nexphone
     if (!address) {
-      setAvailabilities([]);
+      setAvailabilities(null);
       setSelectedPlan(null);
       setPlanSelection(null);
       setPlans(plans.map((p) => ({ ...p, available: undefined })));
@@ -172,7 +174,7 @@ export default function PlanSelection({
 
   useEffect(() => {
     // match availabilities with actual plans
-    if (availabilities.length === 0) return;
+    if (availabilities === null) return;
 
     const getAvailableTechnologies = (plan: Plan) =>
       Object.keys(plan.availability).filter((a) => plan.availability[a]);
