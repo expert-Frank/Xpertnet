@@ -7,6 +7,84 @@
       "blub blubb blubb"
     ]
   },
+  "texts": {
+    "before": {
+      "title": {
+        "de": "Adresse Eingeben",
+        "en": "Add Address"
+      },
+      "texts": {
+        "de": [
+          "Bitte suche zunächst nach deiner Adresse, um ein Abo auswählen zu können. Die möglichen Abos werden an die Verfügbarkeiten an dieser Adresse angepasst."
+        ],
+        "en": [
+          "Please search for your address first. The available plans are adapted to the availabilities at this address."
+        ]
+      }
+    },
+    "plans": {
+      "title": {
+        "de": "Abonnemente",
+        "en": "Plans"
+      },
+      "texts": {
+        "de": [
+          "An deiner Adresse sind untenstehende Abonnemente möglich.",
+          "VDSL: Kupferleitung",
+          "Fiber BX: Glasfaser, bis 1 Gbit / s",
+          "Fiber XGS-PON: Glasfaser, bis 10 Gbit / s"
+        ],
+        "en": [
+          "Below plans are possible at your address.",
+          "VDSL: copper line",
+          "Fiber BX: Fibre optic, up to 1 Gbit / s",
+          "Fiber XGS-PON: Fibre optic, up to 10 Gbit / s"
+        ]
+      }
+    },
+    "ips": {
+      "title": {
+        "de": "Statische IP-Adressen",
+        "en": "Static IP Addresses"
+      },
+      "texts": {
+        "de": [
+          "Statische IP-Adressen sind auf Sie zugewiesen und ändern sich nicht. Das ist vor allem für Server an diesem Netzwerk wichtig."
+        ],
+        "en": [
+          "Static IP addresses are assigned to you and do not change. This is particularly important for servers on this network."
+        ]
+      }
+    },
+    "routers": {
+      "title": {
+        "de": "Router",
+        "en": "Router"
+      },
+      "texts": {
+        "de": [
+          "Ein Router ist ein Gerät, das Ihr Zuhause oder Ihr Unternehmen mit dem Internet verbindet und Daten zwischen Ihren Geräten (wie Telefonen, Laptops, Fernsehern) und dem Internet überträgt. Wir empfehlen hierfür FRITZ!Boxen, da diese für ihre Zuverlässigkeit und Benutzerfreundlichkeit bekannt sind."
+        ],
+        "en": [
+          "A router is a device that connects your home or business to the internet and directs data between your devices (like phones, laptops, TVs) and the internet. We recommend FRITZ! boxes for this, as they are known for their reliability and user-friendliness."
+        ]
+      }
+    },
+    "installation": {
+      "title": {
+        "de": "Installation",
+        "en": "Installation"
+      },
+      "texts": {
+        "de": [
+          "Die Installation des Routers kann in den meisten Fällen gut selbst gemacht werden. Falls Sie doch lieber auf Unterstützung zurückgreifen möchten, helfen wir natürlich sehr gerne aus."
+        ],
+        "en": [
+          "In most cases, you can easily install the router yourself. However, if you would prefer to rely on support, we will of course be happy to help."
+        ]
+      }
+    }
+  },
   "plans": [
     {
       "title": "Xpertnet Essential",

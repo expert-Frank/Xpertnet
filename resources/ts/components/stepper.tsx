@@ -1,8 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import axios from "axios";
 
-import { IconCheck } from "@tabler/icons-react";
+import { IconCheck, IconInfoCircle } from "@tabler/icons-react";
 
 import AddressSearch from "@/components/addressSearch";
 import PlanSelection from "@/components/planSelection";
@@ -20,7 +20,22 @@ import type { Router } from "@/components/routers";
 import type { Installation as InstallationType } from "@/components/installation";
 import type { Contact } from "@/components/contactData";
 
-import useTranslation from "@/hooks/useTranslation";
+import useTranslation, { useLocale } from "@/hooks/useTranslation";
+
+interface Description {
+  [key: string]: Entry;
+}
+
+interface Entry {
+  title: {
+    de: string;
+    en: string;
+  };
+  texts: {
+    de: string[];
+    en: string[];
+  };
+}
 
 export default function Stepper() {
   const [address, setAddress] = useState<Match | null>(null);
@@ -35,7 +50,10 @@ export default function Stepper() {
   const [target, setTarget] = useState<"home" | "business">("home");
   const [ok, setOk] = useState<boolean>(false);
 
+  const [descriptions, setDescriptions] = useState<Description | null>(null);
+
   const t = useTranslation();
+  const locale = useLocale();
 
   const order = async (contact: Contact) => {
     await axios.post("/api/order", {
@@ -53,6 +71,44 @@ export default function Stepper() {
     setPlan(null);
     setIps(null);
     setRouter(null);
+  };
+
+  useEffect(() => {
+    (async () => {
+      const res = await axios.get("/api/config", {
+        params: {
+          field: "texts",
+        },
+      });
+
+      setDescriptions(res.data);
+    })();
+  }, []);
+
+  const getDescriptions = (key: string) => {
+    if (!descriptions) return <></>;
+    if (!descriptions[key]) return <></>;
+
+    const texts =
+      locale === "de"
+        ? descriptions[key].texts["de"]
+        : descriptions[key].texts["en"];
+
+    return (
+      <Alert
+        title={
+          locale === "de"
+            ? descriptions[key].title["de"]
+            : descriptions[key].title["en"]
+        }
+        icon={<IconInfoCircle />}
+        className="mt-8"
+      >
+        {texts.map((t, i) => (
+          <p key={i}>{t}</p>
+        ))}
+      </Alert>
+    );
   };
 
   return (
@@ -87,10 +143,24 @@ export default function Stepper() {
           loading={loading}
           setLoading={setLoading}
           setPlanSelection={setPlan}
+          desc={getDescriptions("plans")}
         />
-        <StaticIPs show={target === "business"} setSelection={setIps} />
-        <Routers show={!!plan} setSelection={setRouter} iplan={plan} />
-        <Installation show={!!plan} setSelection={setInstallation} />
+        <StaticIPs
+          show={target === "business"}
+          setSelection={setIps}
+          desc={getDescriptions("ips")}
+        />
+        <Routers
+          show={!!plan}
+          setSelection={setRouter}
+          iplan={plan}
+          desc={getDescriptions("routers")}
+        />
+        <Installation
+          show={!!plan}
+          setSelection={setInstallation}
+          desc={getDescriptions("installation")}
+        />
         <ContactData show={!!plan} order={order} />
 
         {ok && (

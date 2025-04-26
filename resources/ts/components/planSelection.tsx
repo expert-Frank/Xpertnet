@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import type { ReactNode } from "react";
 
 import axios from "axios";
 
@@ -95,11 +96,13 @@ export default function PlanSelection({
   loading,
   setLoading,
   setPlanSelection,
+  desc,
 }: {
   address: Match | null;
   loading: boolean;
   setLoading: (loading: boolean) => void;
   setPlanSelection: (plan: Plan | null) => void;
+  desc: ReactNode;
 }) {
   const [plans, setPlans] = useState<Plan[]>([]);
   const [availabilities, setAvailabilities] = useState<Availability[] | null>(
@@ -246,17 +249,18 @@ export default function PlanSelection({
           <IconLoader2 className="animate-spin" size={42} />
         </div>
       )}
-      {!address && (
+      {!address ? (
         <Alert
           icon={<IconInfoCircleFilled />}
           title={t("stepper.addAddressFirst")}
-          className="mb-4"
         >
           {t("stepper.addAddressFirstDesc")}
         </Alert>
+      ) : (
+        <>{desc}</>
       )}
       {plans.length > 0 && (
-        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-4">
           {plans.map((plan, i) => (
             <button
               className={`group p-4 flex flex-col justify-between rounded-md group text-left transition duration-500 border-2 bg-white text-black dark:bg-neutral-700 dark:text-neutral-100 ${plan.available === null ? "blur-sm" : "shadow-md cursor-pointer"} ${i === selectedPlan ? "border-emerald-600 dark:border-lime-600" : "border-white dark:border-neutral-700"}`}
