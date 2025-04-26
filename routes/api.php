@@ -59,6 +59,7 @@ Route::post('/order', function (Request $request) {
   $plan = $request->plan;
   $ips = $request->ips;
   $router = $request->router;
+  $installation = $request->installation;
   $contact = $request->contact;
 
   unset($plan['descriptionDE']);
@@ -70,11 +71,16 @@ Route::post('/order', function (Request $request) {
   unset($router['descriptionDE']);
   unset($router['descriptionEN']);
 
+  unset($installation['nameEN']);
+  unset($installation['descriptionDE']);
+  unset($installation['descriptionEN']);
+
   $plan_json = json_encode($plan, JSON_PRETTY_PRINT);
   $ips_json = json_encode($ips, JSON_PRETTY_PRINT);
   $router_json = json_encode($router, JSON_PRETTY_PRINT);
+  $installation_json = json_encode($installation, JSON_PRETTY_PRINT);
 
-  Mail::to(env('MAIL_RECEIVER', ''))->send(new Order($address, $plan_json, $ips_json, $router_json, $contact));
+  Mail::to(env('MAIL_RECEIVER', ''))->send(new Order($address, $plan_json, $ips_json, $router_json, $installation_json, $contact));
   Log::info('Order from ' . $contact['name'] . ' <' . $contact['email'] . '> sent to ' . env('MAIL_RECEIVER', '[not supplied]'));
 
   return "OK";

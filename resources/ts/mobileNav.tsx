@@ -16,7 +16,7 @@ export default function MobileNav() {
 
   useEffect(() => {
     const ele = document.querySelector("main");
-    if(!ele) return;
+    if (!ele) return;
 
     if (opened) {
       ele.classList.add("hidden");
@@ -27,7 +27,7 @@ export default function MobileNav() {
 
   useEffect(() => {
     const ele = document.getElementById("mobile-nav");
-    if(!ele) return;
+    if (!ele) return;
 
     const obj = JSON.parse(ele.dataset.navItems ?? "");
     setNavItems(obj);
@@ -74,7 +74,7 @@ export default function MobileNav() {
 }
 
 const ele = document.getElementById("mobile-nav");
-if(ele) {
+if (ele) {
   const root = createRoot(ele);
   root.render(<MobileNav />);
 }

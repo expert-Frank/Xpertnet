@@ -22,6 +22,7 @@ class Order extends Mailable
     public string $plan,
     public string $ips,
     public string $router,
+    public string $installation,
     public array $contact,
   ) {}
 

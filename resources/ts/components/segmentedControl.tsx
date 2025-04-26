@@ -25,15 +25,15 @@ export default function SegmentedControl({
   const onInputChange = (value: string, index: number) => {
     setActiveIndex(index);
     callback(value, index);
-  }
+  };
 
   useEffect(() => {
     const activeSegmentRef = segments[activeIndex].ref;
     const { offsetWidth, offsetLeft } = activeSegmentRef.current;
     const { style } = controlRef.current;
 
-    style.setProperty('--highlight-width', `${offsetWidth}px`);
-    style.setProperty('--highlight-x-pos', `${offsetLeft}px`);
+    style.setProperty("--highlight-width", `${offsetWidth}px`);
+    style.setProperty("--highlight-x-pos", `${offsetLeft}px`);
   }, [activeIndex, callback, segments]);
 
   return (
@@ -55,7 +55,7 @@ export default function SegmentedControl({
             />
             <label
               htmlFor={segment.value}
-              className={`cursor-pointer block font-semibold py-1 px-3 relative transition duration-200 ${i === activeIndex ? "text-white": "text-black dark:text-white"}`}
+              className={`cursor-pointer block font-semibold py-1 px-3 relative transition duration-200 ${i === activeIndex ? "text-white" : "text-black dark:text-white"}`}
             >
               {segment.label}
             </label>

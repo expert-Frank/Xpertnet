@@ -29,12 +29,10 @@ export default function AddressSearch({
   address,
   setAddress,
   loading,
-  setLoading,
 }: {
   address: Match | null;
   setAddress: (m: Match) => void;
   loading: boolean;
-  setLoading: (loading: boolean) => void;
 }) {
   const [matches, setMatches] = useState<Match[]>([]);
   const [query, setQuery] = useDebouncedState<string>("", 200);
@@ -74,8 +72,6 @@ export default function AddressSearch({
   useEffect(() => {
     if (query.length < 3) return;
 
-    setLoading(true);
-
     (async () => {
       const res = await axios.get(
         "https://api3.geo.admin.ch/rest/services/ech/SearchServer",
@@ -99,10 +95,7 @@ export default function AddressSearch({
   }, [query]);
 
   return (
-    <Command
-      shouldFilter={false}
-      label={t('stepper.address')}
-    >
+    <Command shouldFilter={false} label={t("stepper.address")}>
       {!address ? (
         <CommandInput
           defaultValue={query}
@@ -132,7 +125,7 @@ export default function AddressSearch({
       )}
       {!address && query && (
         <CommandList>
-          <CommandEmpty>{t('stepper.noResultsFound')}</CommandEmpty>
+          <CommandEmpty>{t("stepper.noResultsFound")}</CommandEmpty>
           <CommandGroup heading="Suggestions">
             {matches.map((match, i) => (
               <CommandItem

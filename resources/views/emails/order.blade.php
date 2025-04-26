@@ -62,6 +62,8 @@
             <div style="height:16px"></div>
             <x-code title="Router" :json="$router" />
             <div style="height:16px"></div>
+            <x-code title="Installation" :json="$installation" />
+            <div style="height:16px"></div>
             <x-code title="Statische IP-Adressen" :json="$ips" />
           </td>
         </tr>

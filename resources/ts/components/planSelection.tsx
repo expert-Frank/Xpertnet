@@ -1,14 +1,19 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import axios from "axios";
 
-import ReactJson from 'react-json-view';
+import ReactJson from "react-json-view";
 
-import { IconArrowNarrowDown, IconArrowNarrowUp, IconInfoCircleFilled } from "@tabler/icons-react";
+import {
+  IconArrowNarrowDown,
+  IconArrowNarrowUp,
+  IconInfoCircleFilled,
+  IconLoader2,
+} from "@tabler/icons-react";
 
 import Divider from "@/components/divider";
 import Alert from "@/components/alert";
-import type Match from "@/components/addressSearch";
+import type { Match } from "@/components/addressSearch";
 
 import useTranslation, { useLocale } from "@/hooks/useTranslation";
 
@@ -24,8 +29,14 @@ export interface Plan {
     Fibre_BX: boolean;
     Fibre_XGSPON: boolean;
   };
-  available: undefined | null | Availability;
+  available: undefined | null | Availability[];
 }
+
+export const technologyMapping = {
+  VDSL: "VDSL",
+  FIBER_XGSPON: "Fibre XGS-PON",
+  FIBER_BX: "Fibre BX",
+};
 
 export interface Availability {
   Caption: string;
@@ -36,14 +47,47 @@ export interface Availability {
     SpeedUpKbps: number;
   };
   TechnologyType: "FIBER_XGSPON" | "FIBER_BX" | "VDSL";
-  Sockets: [
-    {
-      Comment: string;
-      SocketName: string;
-      PlugNumber: number;
-      Status: string;
-    }
-  ];
+  Sockets: Socket[];
+}
+
+interface Socket {
+  Comment: string;
+  SocketName: string;
+  PlugNumber: number;
+  Status: string;
+}
+
+interface NexphoneAvailability {
+  Available: boolean;
+  Connections: NexphoneConnection[];
+  ServiceProvider: string;
+  TechnologyType: "VDSL" | "FIBER_BX" | "FIBER_XGSPON";
+}
+
+interface NexphoneConnection {
+  CatalogEntries: NexphoneCatalogEntry[];
+  MaxSpeedProfile: {
+    MaxSpeedUp: number;
+    MaxSpeedDown: number;
+  };
+  Sockets: NexphoneSocket[];
+}
+
+interface NexphoneCatalogEntry {
+  Caption: string;
+  Code: string;
+  Id: number;
+  NetworkProductInfo: {
+    SpeedDownKbps: number;
+    SpeedUpKbps: number;
+  };
+}
+
+interface NexphoneSocket {
+  Comment: string;
+  PlugNumber: number;
+  SocketName: string;
+  Status: string;
 }
 
 export default function PlanSelection({
@@ -52,10 +96,10 @@ export default function PlanSelection({
   setLoading,
   setPlanSelection,
 }: {
-  address: Match | null
+  address: Match | null;
   loading: boolean;
   setLoading: (loading: boolean) => void;
-  setPlanSelection: (plan: Plan) => void;
+  setPlanSelection: (plan: Plan | null) => void;
 }) {
   const [plans, setPlans] = useState<Plan[]>([]);
   const [availabilities, setAvailabilities] = useState<Availability[]>([]);
@@ -66,19 +110,13 @@ export default function PlanSelection({
 
   const searchParams = new URLSearchParams(document.location.search);
 
-  const technologyMapping = {
-    "VDSL": "VDSL",
-    "FIBER_XGSPON": "Fibre XGS-PON",
-    "FIBER_BX": "Fibre BX"
-  }
-
   useEffect(() => {
     // get available plans from nexphone
     if (!address) {
       setAvailabilities([]);
       setSelectedPlan(null);
       setPlanSelection(null);
-      setPlans(plans.map(p => ({...p, available: undefined})));
+      setPlans(plans.map((p) => ({ ...p, available: undefined })));
       return;
     }
 
@@ -90,6 +128,8 @@ export default function PlanSelection({
         StreetNumber: address.num,
       };
 
+      setLoading(true);
+
       const res = await axios.post(
         "https://portal.nexphone.ch/api/psuite/reseller/sales/network/access/qualification",
         payload,
@@ -98,17 +138,22 @@ export default function PlanSelection({
         },
       );
 
-      const relevant = res.data.List.filter((ele) =>
-        ["VDSL", "FIBER_BX", "FIBER_XGSPON"].includes(ele.TechnologyType),
-      ).filter((ele) => ele.Available);
+      const relevant: NexphoneAvailability[] = res.data.List.filter(
+        (ele: NexphoneAvailability) =>
+          ["VDSL", "FIBER_BX", "FIBER_XGSPON"].includes(ele.TechnologyType),
+      ).filter((ele: NexphoneAvailability) => ele.Available);
 
-      const avail = relevant.flatMap(technology => (
-        technology.Connections[0].CatalogEntries.map(av => (
-          {...av, TechnologyType: technology.TechnologyType, Sockets: technology.Connections[0].Sockets}
-        ))
-      ));
+      const avail = relevant.flatMap((technology: NexphoneAvailability) =>
+        technology.Connections[0].CatalogEntries.map((av) => ({
+          ...av,
+          TechnologyType: technology.TechnologyType,
+          Sockets: technology.Connections[0].Sockets,
+        })),
+      );
 
       setAvailabilities(avail);
+
+      setLoading(false);
     })();
   }, [address]);
 
@@ -117,38 +162,62 @@ export default function PlanSelection({
     (async () => {
       const res = await axios.get("/api/config", {
         params: {
-          field: "plans"
-        }
+          field: "plans",
+        },
       });
 
-      setPlans(res.data.map(p => ({...p, available: undefined})));
+      setPlans(res.data.map((p: Plan) => ({ ...p, available: undefined })));
     })();
   }, []);
 
   useEffect(() => {
     // match availabilities with actual plans
-    if(availabilities.length === 0) return;
+    if (availabilities.length === 0) return;
 
-    const getAvailableTechnologies = (plan: Plan) => Object.keys(plan.availability).filter(a => plan.availability[a]);
+    const getAvailableTechnologies = (plan: Plan) =>
+      Object.keys(plan.availability).filter((a) => plan.availability[a]);
 
-    const newPlans = plans.map(plan => {
+    const newPlans = plans.map((plan) => {
       // for each plan, find (if possible) an availability that
       // best matches that plan. we will then display that availability
       // in place of the plan for exact information that we did
       // not know before
+      //
+      // Also, two availabilities with different technologies might
+      // have the same speed profile. In that case, multiple
+      // availabilities are assign to a plan and the user can
+      // then select any router for any matching technology
       //
       // available:
       // undefined: initial state
       // null: no option found
       // Availability: best option
 
-      const match = availabilities
-        .filter(a => plan.down >= a.NetworkProductInfo.SpeedDownKbps)
-        .filter(a => getAvailableTechnologies(plan).includes(technologyMapping[a.TechnologyType]))
-        .toSorted((a, b) => a.NetworkProductInfo.SpeedDownKbps > b.NetworkProductInfo.SpeedDownKbps ? -1 : 1)[0];
+      const matches = availabilities
+        .filter((a) => plan.down >= a.NetworkProductInfo.SpeedDownKbps)
+        .filter((a) =>
+          getAvailableTechnologies(plan).includes(
+            technologyMapping[a.TechnologyType],
+          ),
+        )
+        .toSorted((a, b) =>
+          a.NetworkProductInfo.SpeedDownKbps >
+          b.NetworkProductInfo.SpeedDownKbps
+            ? -1
+            : 1,
+        );
 
-      if(!match) return {...plan, available: null};
-      return {...plan, available: match};
+      if (matches.length === 0) return { ...plan, available: null };
+
+      const matchesWithSameSpeed = matches.filter(
+        (match: Availability) =>
+          match.NetworkProductInfo.SpeedUpKbps ===
+            matches[0].NetworkProductInfo.SpeedUpKbps &&
+          match.NetworkProductInfo.SpeedDownKbps ===
+            matches[0].NetworkProductInfo.SpeedDownKbps,
+      );
+
+      return { ...plan, available: matchesWithSameSpeed };
     });
 
     setPlans(newPlans);
@@ -157,28 +226,42 @@ export default function PlanSelection({
   }, [availabilities]);
 
   useEffect(() => {
-    if(selectedPlan === null) return;
+    if (selectedPlan === null) return;
     setPlanSelection(plans[selectedPlan]);
   }, [selectedPlan, plans, setPlanSelection]);
 
   const formatSpeed = (speed: number) => {
     const mb = speed / 1000;
 
-    if(mb >= 1000) return `${Math.round(mb / 1000)} Gbit / s`;
-    return `${Math.round(mb)} Mbit / s`
-  }
+    if (mb >= 1000) return `${Math.round(mb / 1000)} Gbit / s`;
+    return `${Math.round(mb)} Mbit / s`;
+  };
 
   return (
-    <div className="my-8">
+    <div className="mt-8 relative">
+      {loading && (
+        <div className="absolute left-0 top-0 w-full h-full flex items-center justify-center backdrop-blur-sm z-50">
+          <IconLoader2 className="animate-spin" size={42} />
+        </div>
+      )}
       {!address && (
-        <Alert icon={<IconInfoCircleFilled />} title={t("stepper.addAddressFirst")} className="mb-4">
+        <Alert
+          icon={<IconInfoCircleFilled />}
+          title={t("stepper.addAddressFirst")}
+          className="mb-4"
+        >
           {t("stepper.addAddressFirstDesc")}
         </Alert>
       )}
       {plans.length > 0 && (
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {plans.map((plan, i) => (
-            <button className={`group p-4 flex flex-col justify-between rounded-md group text-left transition duration-500 border-2 ${plan.available === null ? "bg-neutral-200 text-neutral-600 shadow-none blur-sm" : "bg-white text-black dark:bg-neutral-700 dark:text-neutral-100 shadow-md cursor-pointer"} ${i === selectedPlan ? "border-emerald-600 dark:border-lime-600" : "border-white dark:border-neutral-700"}`} key={i} disabled={!plan.available} onClick={() => setSelectedPlan(i)}>
+            <button
+              className={`group p-4 flex flex-col justify-between rounded-md group text-left transition duration-500 border-2 bg-white text-black dark:bg-neutral-700 dark:text-neutral-100 ${plan.available === null ? "blur-sm" : "shadow-md cursor-pointer"} ${i === selectedPlan ? "border-emerald-600 dark:border-lime-600" : "border-white dark:border-neutral-700"}`}
+              key={i}
+              disabled={!plan.available}
+              onClick={() => setSelectedPlan(i)}
+            >
               <div>
                 <h4 className="font-bold text-lg">{plan.title}</h4>
                 <p className="my-4">
@@ -188,21 +271,32 @@ export default function PlanSelection({
                 <div className="flex gap-4 my-2">
                   <span className="flex items-center gap-2">
                     <IconArrowNarrowDown className="text-emerald-600 dark:text-emerald-400" />
-                    {formatSpeed(plan.available?.NetworkProductInfo?.SpeedDownKbps || plan.down)}
+                    {formatSpeed(
+                      (plan.available &&
+                        plan.available[0].NetworkProductInfo?.SpeedDownKbps) ||
+                        plan.down,
+                    )}
                   </span>
                   <span className="flex items-center gap-2">
                     <IconArrowNarrowUp className="text-lime-600 dark:text-lime-400" />
-                    {formatSpeed(plan.available?.NetworkProductInfo?.SpeedUpKbps || plan.up)}
+                    {formatSpeed(
+                      (plan.available &&
+                        plan.available[0].NetworkProductInfo?.SpeedUpKbps) ||
+                        plan.up,
+                    )}
                   </span>
                 </div>
 
                 {plan.available ? (
                   <div className="flex gap-2">
-                    <span
-                      className="px-3 py-[1px] rounded-full bg-emerald-100 dark:bg-lime-600 text-black dark:text-white font-semibold text-sm"
-                    >
-                      {technologyMapping[plan.available.TechnologyType]}
-                    </span>
+                    {plan.available.map((a: Availability, j: number) => (
+                      <span
+                        className="px-3 py-[1px] rounded-full bg-emerald-100 dark:bg-lime-600 text-black dark:text-white font-semibold text-sm"
+                        key={j}
+                      >
+                        {technologyMapping[a.TechnologyType]}
+                      </span>
+                    ))}
                   </div>
                 ) : (
                   <div className="flex gap-2">
@@ -232,7 +326,7 @@ export default function PlanSelection({
         </div>
       )}
 
-      {searchParams.get('json') && plans.length > 0 && (
+      {searchParams.get("json") && plans.length > 0 && (
         <div className="bg-white p-4 rounded-md mt-8 shadow-md">
           <ReactJson src={plans} collapsed={2} displayDataTypes={false} />
         </div>

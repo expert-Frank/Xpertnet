@@ -7,6 +7,7 @@ return [
     "address" => "Address",
     "addressPlaceholder" => "Hauptstrasse 6, 8050 Zürich",
     "month" => "month",
+    "hour" => "hour",
     "noResultsFound" => "No Results Found",
     "home" => "For Your Home",
     "business" => "For Your Business",
