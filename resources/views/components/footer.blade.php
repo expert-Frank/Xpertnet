@@ -1,4 +1,4 @@
-<footer class="inset-shadow-emerald-600/30 inset-shadow-sm px-6 py-12 text-black dark:text-white">
+<footer class="inset-shadow-emerald-600/30 inset-shadow-sm px-6 py-12 text-black dark:text-white" id="about">
   <div class="max-w-[1200px] mx-auto">
     <div class="flex gap-4 items-start text-black dark:text-neutral-100 group">
       <img src="/img/pentagon.svg" class="w-10 group-hover:rotate-72 duration-250 drop-shadow-lg" />
@@ -8,7 +8,7 @@
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 mt-4 gap-4 align-end">
-      <div class="h-full flex flex-col justify-end">
+      <div class="hidden lg:flex h-full flex-col justify-end">
         <img src="Xpertnet_logo_nopadding.svg" class="w-full" />
       </div>
       <div class="h-full flex flex-col justify-end">

@@ -1,10 +1,8 @@
-import { useState, useEffect, useRef } from "react";
-import { createRoot } from "react-dom/client";
-import type { FromEvent } from "react";
+import { useState, useRef } from "react";
 
 import axios from "axios";
 
-import { IconSearch, IconLoader2, IconCheck } from "@tabler/icons-react";
+import { IconCheck } from "@tabler/icons-react";
 
 import AddressSearch from "@/components/addressSearch";
 import PlanSelection from "@/components/planSelection";
@@ -54,7 +52,7 @@ export default function Stepper() {
   }
 
   return (
-    <div className="text-black dark:text-neutral-100 w-full max-w-[1200px] mx-auto p-4">
+    <div className="text-black dark:text-neutral-100 w-full max-w-[1200px] mx-auto p-6">
       <div>
         <AddressSearch address={address} setAddress={setAddress} loading={loading} setLoading={setLoading} />
 

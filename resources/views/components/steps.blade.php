@@ -25,14 +25,14 @@
                 </h2>
             </div>
             <div class="py-4"></div>
-            <x-steps-entry num="1" title="{{ __('steps.chooseT') }}">
+            <x-steps-entry num="1" title="{{ __('steps.availabilityT') }}">
+                <p>{{ __('steps.availabilityD') }}</p>
+            </x-steps-entry>
+            <x-steps-entry num="2" title="{{ __('steps.chooseT') }}">
                 <p>{{ __('steps.chooseD') }}</p>
             </x-steps-entry>
-            <x-steps-entry num="2" title="{{ __('steps.routerT') }}">
+            <x-steps-entry num="3" title="{{ __('steps.routerT') }}">
                 <p>{{ __('steps.routerD') }}</p>
-            </x-steps-entry>
-            <x-steps-entry num="3" title="{{ __('steps.availabilityT') }}">
-                <p>{{ __('steps.availabilityD') }}</p>
             </x-steps-entry>
             <x-steps-entry num="4" title="{{ __('steps.setupT') }}">
                 <div class="flex gap-4 flex-wrap">

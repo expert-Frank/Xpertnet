@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import type { RefObject } from "react";
 
 interface Segment {
@@ -38,7 +38,7 @@ export default function SegmentedControl({
 
   return (
     <div className={`flex ${className}`} ref={controlRef}>
-      <div className="inline-flex justify-between bg-white dark:bg-neutral-700 shadow-md rounded-md max-w-[500px] p-3 m-auto overflow-hidden relative before:content-[''] before:bg-emerald-600 before:rounded-sm before:w-[var(--highlight-width)] before:absolute before:top-2 before:bottom-2 before:left-0 before:z-0 before:transform-[translateX(var(--highlight-x-pos))] before:transform before:duration-200">
+      <div className="inline-flex justify-between bg-white dark:bg-neutral-700 shadow-md rounded-md max-w-[500px] p-3 m-auto overflow-hidden relative before:content-[''] before:bg-emerald-600 before:rounded-sm before:w-[var(--highlight-width)] before:absolute before:top-1 before:bottom-1 before:left-0 before:z-0 before:transform-[translateX(var(--highlight-x-pos))] before:transform before:duration-200">
         {segments.map((segment, i) => (
           <div
             key={segment.value}
