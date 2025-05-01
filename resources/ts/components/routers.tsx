@@ -102,9 +102,11 @@ export default function Routers({
                     {plan.name}
                   </span>
                 )}
-                <p className="">
-                  {locale === "en" ? plan.descriptionEN : plan.descriptionDE}
-                </p>
+                {plan.descriptionDE && (
+                  <p className="">
+                    {locale === "en" ? plan.descriptionEN : plan.descriptionDE}
+                  </p>
+                )}
                 {plan.technology && (
                   <div className="mt-2">
                     <span className="px-3 py-[1px] rounded-full bg-emerald-100 dark:bg-lime-600 text-black dark:text-white font-semibold text-sm">

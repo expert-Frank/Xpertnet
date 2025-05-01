@@ -188,22 +188,22 @@
   "routers": [
     {
       "name": "FRITZ!Box 7530",
-      "descriptionDE": "blubb",
-      "descriptionEN": "blubb",
+      "descriptionDE": "",
+      "descriptionEN": "",
       "price": 149,
       "technology": "VDSL"
     },
     {
       "name": "FRITZ!Box 5530",
-      "descriptionDE": "blubb",
-      "descriptionEN": "blubb",
+      "descriptionDE": "",
+      "descriptionEN": "",
       "price": 179,
       "technology": "Fibre BX"
     },
     {
       "name": "FRITZ!Box 5530 (XGS-PON Edition)",
-      "descriptionDE": "blubb",
-      "descriptionEN": "blubb",
+      "descriptionDE": "",
+      "descriptionEN": "",
       "price": 229,
       "technology": "Fibre XGS-PON"
     }
