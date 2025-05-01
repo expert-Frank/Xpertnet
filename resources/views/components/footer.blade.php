@@ -13,7 +13,11 @@
       </div>
       <div class="h-full flex flex-col justify-end">
         @foreach($about as $aboutRow)
-          <p class="my-1">{{ $aboutRow }}</p>
+          <p class="my-1">
+            <x-markdown>
+              {{ $aboutRow }}
+            </x-markdown>
+          </p>
         @endforeach
       </div>
       <div class="h-full flex flex-col justify-end">

@@ -2,7 +2,7 @@
     <!-- Desktop Navigation -->
     <div class="flex-1 lg:flex gap-4 items-center hidden">
         @foreach ($navItems as $navItem)
-            <a href="{{ $navItem['anchor'] }}">{{ $navItem['label'] }}</a>
+            <a class="no-underline!" href="{{ $navItem['anchor'] }}">{{ $navItem['label'] }}</a>
         @endforeach
     </div>
 

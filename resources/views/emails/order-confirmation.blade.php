@@ -62,21 +62,24 @@
 
             <div style="height:16px"></div>
             <h5 style="margin:0">Abonnement</h5>
-            <ul>
+            <div style="height:8px"></div>
+            <ul style="margin:0">
               <li>{{ $plan['title'] }}</li>
               <li>Preis: {{ $plan['price'] }} CHF / Monat</li>
             </ul>
 
             <div style="height:16px"></div>
             <h5 style="margin:0">Router</h5>
-            <ul>
+            <div style="height:8px"></div>
+            <ul style="margin:0">
               <li>Typ: {{ $router['name'] }}</li>
               <li>Preis: {{ $router['price'] }} CHF</li>
             </ul>
 
             <div style="height:16px"></div>
             <h5 style="margin:0">Installation</h5>
-            <ul>
+            <div style="height:8px"></div>
+            <ul style="margin:0">
               <li>{{ $installation['nameDE'] }}</li>
               <li>Preis: {{ $installation['price'] }} CHF / Stunde</li>
             </ul>
@@ -84,7 +87,8 @@
             @if ($ips['num'] > 0)
               <div style="height:16px"></div>
               <h5 style="margin:0">Statische IP-Adressen</h5>
-              <ul>
+              <div style="height:8px"></div>
+              <ul style="margin:0">
                 <li>Anzahl: {{ $ips['num'] }}</li>
                 <li>Preis: {{ $ips['price'] }} CHF / Monat</li>
               </ul>

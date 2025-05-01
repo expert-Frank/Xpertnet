@@ -1,12 +1,12 @@
 {
   "about": {
     "de": [
-      "Xpertnet ist der Internet-Service der expert Frank GmbH, der sich durch Unkompliziertheit und direkten Kundenkontakt auszeichnet. Dabei sammelte die expert Frank GmbH seit 1992 Erfahrung und ist heute Expertin für Bild, Ton und Kommunikation. expert Frank bietet Multimediaelektronik-Lösungen aus eigener Hand an.",
-      "Xpertnet bietet einen Service an, welcher Entscheid bis Inbetriebnahme innert wenigen Tagen zu kompetitiven Preisen ermöglicht. Als Kunde von Xpertnet geniessen Sie ausserdem einen persönlichen und umfassenden Service zu jeder Tages- und Nachtzeit."
+      "Xpertnet ist der Internet-Service der [expert Frank GmbH](https://expertfrank.ch). Er zeichnet sich durch Unkompliziertheit und direkten Kundenkontakt aus. Bei Xpertnet ist es möglich, dass zwischen Entscheid bis zur Inbetriebnahme nur wenige Stunden vergehen.",
+      "Die expert Frank GmbH verfügt über mehr als 30 Jahre erfahrung und bietet Multimediaelektronik-Komplettlösungen nach Mass an."
     ],
     "en": [
-      "Xpertnet is the internet service of expert Frank GmbH, which is characterised by simplicity and direct customer contact. expert Frank GmbH has been gaining experience since 1992 and is now an expert in image, sound and communication. expert Frank offers multimedia electronics solutions from our own creation.",
-      "Xpertnet offers a service that enables decision to commissioning within a few days at competitive prices. As an Xpertnet customer, you also enjoy a personalised and comprehensive service at any time of day or night."
+      "Xpertnet is the Internet service of [expert Frank GmbH](https://expertfrank.ch). It is characterised by its simplicity and direct customer contact. With Xpertnet, it is possible for only a few hours to pass between the decision and commissioning.",
+      "expert Frank GmbH has more than 30 years of experience and offers complete customised multimedia electronics solutions."
     ]
   },
   "texts": {
@@ -17,7 +17,7 @@
       },
       "texts": {
         "de": [
-          "Bitte suche zunächst nach deiner Adresse, um ein Abo auswählen zu können. Die möglichen Abos werden an die Verfügbarkeiten an dieser Adresse angepasst."
+          "Bitte suchen Sie zunächst nach Ihrer Adresse, um ein Abo auswählen zu können. Die möglichen Abos werden an die Verfügbarkeiten an dieser Adresse angepasst."
         ],
         "en": [
           "Please search for your address first. The available plans are adapted to the availabilities at this address."
@@ -31,16 +31,12 @@
       },
       "texts": {
         "de": [
-          "An deiner Adresse sind untenstehende Abonnemente möglich.",
-          "VDSL: Kupferleitung",
-          "Fiber BX: Glasfaser, bis 1 Gbit / s",
-          "Fiber XGS-PON: Glasfaser, bis 10 Gbit / s"
+          "An Ihrer Adresse sind untenstehende Abonnemente möglich. Die nun dargestellten Geschwindigkeiten und Technologien entsprechen nun dem, was Xpertnet bei Ihnen anbieten kann.",
+          "Diese Technologien sind generell möglich: VDSL: Kupferleitung; Fiber BX: Glasfaser, bis 1 Gbit / s; Fiber XGS-PON: Glasfaser, bis 10 Gbit / s"
         ],
         "en": [
-          "Below plans are possible at your address.",
-          "VDSL: copper line",
-          "Fiber BX: Fibre optic, up to 1 Gbit / s",
-          "Fiber XGS-PON: Fibre optic, up to 10 Gbit / s"
+          "Below plans are possible at your address. The now displayed speeds and technologies are what Xpertnet can actually offer at your location.",
+          "These technologies are generally possible: VDSL: copper line; Fiber BX: Fibre optic, up to 1 Gbit / s; Fiber XGS-PON: Fibre optic, up to 10 Gbit / s"
         ]
       }
     },

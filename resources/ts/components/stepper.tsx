@@ -105,7 +105,9 @@ export default function Stepper() {
         className="mt-8"
       >
         {texts.map((t, i) => (
-          <p key={i}>{t}</p>
+          <p className="my-2" key={i}>
+            {t}
+          </p>
         ))}
       </Alert>
     );
@@ -130,23 +132,25 @@ export default function Stepper() {
           loading={loading}
         />
 
-        <SegmentedControl
-          callback={setTarget}
-          controlRef={useRef()}
-          segments={[
-            {
-              label: t("stepper.home"),
-              value: "home",
-              ref: useRef(),
-            },
-            {
-              label: t("stepper.business"),
-              value: "business",
-              ref: useRef(),
-            },
-          ]}
-          className="mt-8"
-        />
+        {/*
+         * <SegmentedControl
+         *   callback={setTarget}
+         *   controlRef={useRef()}
+         *   segments={[
+         *     {
+         *       label: t("stepper.home"),
+         *       value: "home",
+         *       ref: useRef(),
+         *     },
+         *     {
+         *       label: t("stepper.business"),
+         *       value: "business",
+         *       ref: useRef(),
+         *     },
+         *   ]}
+         *   className="mt-8"
+         * />
+         */}
 
         <PlanSelection
           address={address}
