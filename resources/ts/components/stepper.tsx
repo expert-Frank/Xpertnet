@@ -49,6 +49,7 @@ export default function Stepper() {
   const [loading, setLoading] = useState<boolean>(false);
   const [target, setTarget] = useState<"home" | "business">("home");
   const [ok, setOk] = useState<boolean>(false);
+  const [sending, setSending] = useState<boolean>(false);
 
   const [descriptions, setDescriptions] = useState<Description | null>(null);
 
@@ -56,6 +57,9 @@ export default function Stepper() {
   const locale = useLocale();
 
   const order = async (contact: Contact) => {
+    if(sending) return;
+    setSending(true);
+
     await axios.post("/api/order", {
       address,
       plan,
@@ -66,6 +70,7 @@ export default function Stepper() {
     });
 
     setOk(true);
+    setSending(false);
 
     setAddress(null);
     setPlan(null);
