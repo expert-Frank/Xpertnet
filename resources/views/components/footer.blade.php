@@ -7,7 +7,7 @@
       </h2>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 mt-4 gap-4 align-end">
+    <div class="grid grid-cols-1 lg:grid-cols-3 mt-4 gap-8 align-end">
       <div class="hidden lg:flex h-full flex-col justify-end">
         <img src="Xpertnet_logo_nopadding.svg" class="w-full" />
       </div>

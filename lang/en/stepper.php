@@ -24,4 +24,7 @@ return [
     "errRobot" => "Please confirm that you're not a robot",
     "success" => "Order received",
     "successDesc" => "Your order was received. We'll be in touch shortly!",
+    "Fibre XGS-PON" => "Fibre XGS-PON",
+    "Fibre BX" => "Fibre BX",
+    "VDSL" => "VDSL",
 ];

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Lang;
 
 use App\Mail\Order;
+use App\Mail\OrderConfirmation;
 
 Route::get('/localization', function (Request $request) {
   $res = [
@@ -81,6 +82,7 @@ Route::post('/order', function (Request $request) {
   $installation_json = json_encode($installation, JSON_PRETTY_PRINT);
 
   Mail::to(env('MAIL_RECEIVER', ''))->send(new Order($address, $plan_json, $ips_json, $router_json, $installation_json, $contact));
+  Mail::to($contact['email'])->send(new OrderConfirmation($address, $plan, $ips, $router, $installation, $contact));
   Log::info('Order from ' . $contact['name'] . ' <' . $contact['email'] . '> sent to ' . env('MAIL_RECEIVER', '[not supplied]'));
 
   return "OK";

@@ -40,7 +40,7 @@
             </table>
             <div style="height:16px"></div>
             <h4 style="margin:0">
-              Neue Bestellung von <strong>{{ $contact['name'] }}</strong>
+              Bestellungsbestätigung
             </h4>
 
             @if($contact['message'] !== "")
@@ -61,13 +61,34 @@
             </ul>
 
             <div style="height:16px"></div>
-            <x-code title="Abonnement" :json="$plan" />
+            <h5 style="margin:0">Abonnement</h5>
+            <ul>
+              <li>{{ $plan['title'] }}</li>
+              <li>Preis: {{ $plan['price'] }} CHF / Monat</li>
+            </ul>
+
             <div style="height:16px"></div>
-            <x-code title="Router" :json="$router" />
+            <h5 style="margin:0">Router</h5>
+            <ul>
+              <li>Typ: {{ $router['name'] }}</li>
+              <li>Preis: {{ $router['price'] }} CHF</li>
+            </ul>
+
             <div style="height:16px"></div>
-            <x-code title="Installation" :json="$installation" />
-            <div style="height:16px"></div>
-            <x-code title="Statische IP-Adressen" :json="$ips" />
+            <h5 style="margin:0">Installation</h5>
+            <ul>
+              <li>{{ $installation['nameDE'] }}</li>
+              <li>Preis: {{ $installation['price'] }} CHF / Stunde</li>
+            </ul>
+
+            @if ($ips['num'] > 0)
+              <div style="height:16px"></div>
+              <h5 style="margin:0">Statische IP-Adressen</h5>
+              <ul>
+                <li>Anzahl: {{ $ips['num'] }}</li>
+                <li>Preis: {{ $ips['price'] }} CHF / Monat</li>
+              </ul>
+            @endif
           </td>
         </tr>
       </tbody>

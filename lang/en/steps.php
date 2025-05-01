@@ -29,7 +29,7 @@ return [
 
     "availabilityT" => "Check availability",
     "availabilityD" => "Enter your address and check whether the desired Internet connections are available at your location.",
-    "setupT" => "Installation - Easy or Professional?",
+    "setupT" => "Installation - Do it Yourself or with a Professional?",
     "setupEasyT" => "Simple network",
     "setupEasyD" => "If you want to set up a simple network at home or in the office, you can easily do the installation yourself.",
     "setupComplexT" => "Complex installation",

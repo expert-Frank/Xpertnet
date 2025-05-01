@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 import axios from "axios";
 
-import { useLocale } from "@/hooks/useTranslation";
+import useTranslation, { useLocale } from "@/hooks/useTranslation";
 
 import Divider from "@/components/divider";
 
@@ -32,6 +32,7 @@ export default function Routers({
   const [plans, setPlans] = useState<Router[]>([]);
   const [selectionId, setSelectionId] = useState<number>(0);
 
+  const t = useTranslation();
   const locale = useLocale();
 
   useEffect(() => {
@@ -51,8 +52,6 @@ export default function Routers({
     setSelection(plans[selectionId]);
   }, [selectionId, setSelection, plans]);
 
-  if (plans.length === 0 || !show) return <></>;
-
   const isAvailable = (plan: Router) => {
     if (plan.technology === "") return true;
     if (!iplan?.available) return false;
@@ -62,14 +61,27 @@ export default function Routers({
     );
   };
 
+  useEffect(() => {
+    if (!plans) return;
+
+    const possible = Array(plans.length)
+      .fill(0)
+      .map((_, i) => i)
+      .filter((_, i) => isAvailable(plans[i]));
+    if (possible.length === 0) return;
+    setSelectionId(possible[0]);
+  }, [iplan, plans]);
+
+  if (plans.length === 0 || !show) return <></>;
+
   return (
     <>
       {desc}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 rounded-md gap-4 mt-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 rounded-md gap-4 mt-4">
         {plans.map((plan, i) => (
           <div
             key={i}
-            className={`group rounded-md w-full shadow-md bg-white dark:bg-neutral-700 p-4 relative border-2 transition duration-200 ${i === selectionId ? "border-emerald-600 dark:border-lime-600" : "border-white dark:border-neutral-700"} ${isAvailable(plan) ? "" : "blur-sm"}`}
+            className={`group rounded-md w-full shadow-md bg-white dark:bg-neutral-700 p-4 relative border-2 transition duration-200 ${i === selectionId ? "border-emerald-600 dark:border-lime-600" : "border-white dark:border-neutral-700"} ${isAvailable(plan) ? "" : "blur-sm hidden lg:block"}`}
           >
             <input
               type="radio"
@@ -96,7 +108,7 @@ export default function Routers({
                 {plan.technology && (
                   <div className="mt-2">
                     <span className="px-3 py-[1px] rounded-full bg-emerald-100 dark:bg-lime-600 text-black dark:text-white font-semibold text-sm">
-                      {plan.technology}
+                      {t(`stepper.${plan.technology}`)}
                     </span>
                   </div>
                 )}

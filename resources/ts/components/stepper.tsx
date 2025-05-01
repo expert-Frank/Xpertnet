@@ -113,6 +113,16 @@ export default function Stepper() {
 
   return (
     <div className="text-black dark:text-neutral-100 w-full max-w-[1200px] mx-auto p-6">
+      <div className="flex gap-4 items-start text-black dark:text-neutral-100 group mt-4 mb-8 lg:mt-8 mx-auto justify-start lg:justify-center">
+        <img
+          src="/img/pentagon.svg"
+          className="w-10 group-hover:rotate-72 duration-250 drop-shadow-lg"
+        />
+        <h2 className="font-bold text-3xl lg:text-5xl mt-0 lg:-mt-2">
+          {t("stepper.title")}
+        </h2>
+      </div>
+
       <div>
         <AddressSearch
           address={address}

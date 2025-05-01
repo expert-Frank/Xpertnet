@@ -1,13 +1,4 @@
 <section class="w-full flex relative overflow-hidden gap-8 shadow-md" id="steps">
-    <!--<div class="flex-1 relative w-full flex flex-col justify-between hidden lg:block">
-        <div></div>
-        <div></div>
-        <img src="/img/pentagons-1.svg" class="object-cover h-full w-full rotate-180 blur-xl absolute" />
-        <img src="/img/pentagons-2.svg" class="object-cover h-full w-full blur-md absolute" />
-        <img src="/img/pentagons-3.svg" class="object-cover h-full w-full blur-sm absolute" />
-        <img src="/img/pentagons-4.svg" class="object-cover w-full h-full absolute" />
-        <div class="h-full w-full object-cover bg-neutral-100/50 dark:bg-neutral-800/50 absolute blur-lg"></div>
-    </div>-->
     <div class="flex-1 relative w-full flex flex-col justify-between hidden lg:block">
         <div></div>
         <div></div>
@@ -36,18 +27,10 @@
             </x-steps-entry>
             <x-steps-entry num="4" title="{{ __('steps.setupT') }}">
                 <div class="flex gap-4 flex-wrap">
-                    <div class="p-4 dark:bg-neutral-700 w-full max-w-96 rounded-md bg-neutral-200">
+                    {{--<div class="p-4 dark:bg-neutral-700 w-full max-w-96 rounded-md bg-neutral-200">
                         <h4 class="font-semibold mb-2">{{ __("steps.setupEasyT") }}</h4>
                         <p>{{ __("steps.setupEasyD") }}</p>
-                    </div>
-                    <div class="p-4 dark:bg-neutral-700 w-full max-w-96 rounded-md bg-neutral-200">
-                        <h4 class="font-semibold mb-2">{{ __("steps.setupComplexT") }}</h4>
-                        <p>{{ __("steps.setupComplexD") }}</p>
-                    </div>
-                </div>
-            </x-steps-entry>
-            <x-steps-entry num="5" title="{{ __('steps.installationT') }}">
-                <div class="flex gap-4 flex-wrap">
+                    </div>--}}
                     <div class="p-4 dark:bg-neutral-700 w-full max-w-96 rounded-md bg-neutral-200">
                         <h4 class="font-semibold mb-2">{{ __("steps.installationSelfT") }}</h4>
                         <p>{{ __("steps.installationSelfD") }}</p>
@@ -55,6 +38,10 @@
                     <div class="p-4 dark:bg-neutral-700 w-full max-w-96 rounded-md bg-neutral-200">
                         <h4 class="font-semibold mb-2">{{ __("steps.installationProT") }}</h4>
                         <p>{{ __("steps.installationProD") }}</p>
+                    </div>
+                    <div class="p-4 dark:bg-neutral-700 w-full max-w-96 rounded-md bg-neutral-200">
+                        <h4 class="font-semibold mb-2">{{ __("steps.setupComplexT") }}</h4>
+                        <p>{{ __("steps.setupComplexD") }}</p>
                     </div>
                 </div>
             </x-steps-entry>

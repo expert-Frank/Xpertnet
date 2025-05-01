@@ -1,10 +1,12 @@
 {
   "about": {
     "de": [
-      "Xpertnet ist der Internet-Service der expert Frank GmbH, der sich durch Unkompliziertheit und direkten Kundenkontakt auszeichnet. Dabei sammelte die expert Frank GmbH seit 1992 Erfahrung und ist heute Expertin für Bild, Ton und Kommunikation. expert Frank bietet Multimediaelektronik-Lösungen aus eigener Hand an."
+      "Xpertnet ist der Internet-Service der expert Frank GmbH, der sich durch Unkompliziertheit und direkten Kundenkontakt auszeichnet. Dabei sammelte die expert Frank GmbH seit 1992 Erfahrung und ist heute Expertin für Bild, Ton und Kommunikation. expert Frank bietet Multimediaelektronik-Lösungen aus eigener Hand an.",
+      "Xpertnet bietet einen Service an, welcher Entscheid bis Inbetriebnahme innert wenigen Tagen zu kompetitiven Preisen ermöglicht. Als Kunde von Xpertnet geniessen Sie ausserdem einen persönlichen und umfassenden Service zu jeder Tages- und Nachtzeit."
     ],
     "en": [
-      "Xpertnet is the internet service of expert Frank GmbH, which is characterised by simplicity and direct customer contact. expert Frank GmbH has been gaining experience since 1992 and is now an expert in image, sound and communication. expert Frank offers multimedia electronics solutions from a single source."
+      "Xpertnet is the internet service of expert Frank GmbH, which is characterised by simplicity and direct customer contact. expert Frank GmbH has been gaining experience since 1992 and is now an expert in image, sound and communication. expert Frank offers multimedia electronics solutions from our own creation.",
+      "Xpertnet offers a service that enables decision to commissioning within a few days at competitive prices. As an Xpertnet customer, you also enjoy a personalised and comprehensive service at any time of day or night."
     ]
   },
   "texts": {
@@ -185,13 +187,6 @@
   ],
   "routers": [
     {
-      "name": "",
-      "descriptionDE": "Ich besitze bereits einen kompatiblen Router",
-      "descriptionEN": "I already have a compatible router",
-      "price": 0,
-      "technology": ""
-    },
-    {
       "name": "FRITZ!Box 7530",
       "descriptionDE": "blubb",
       "descriptionEN": "blubb",
@@ -217,8 +212,8 @@
     {
       "nameDE": "Eigeninstallation",
       "nameEN": "Do it Yourself",
-      "descriptionDE": "Installieren Sie ihr Internet selbst. Wir geben dafür gerne eine detailierte Anleitung und Support per Telefon oder E-Mail",
-      "descriptionEN": "Install your Internet yourself. We will be happy to provide you with detailed instructions and support by phone or e-mail",
+      "descriptionDE": "Installieren Sie ihr Internet selbst. Wir geben dafür gerne eine detailierte Anleitung und Support per Telefon oder E-Mail.",
+      "descriptionEN": "Install your Internet yourself. We will be happy to provide you with detailed instructions and support by phone or e-mail.",
       "price": 0
     },
     {
@@ -231,8 +226,8 @@
     {
       "nameDE": "Installation durch einen Xpertnet-Profi",
       "nameEN": "Installation by an Xpernet Expert",
-      "descriptionDE": "Für eine komplexe Netzwerkinstallation steht unser Profi-Service bereit, um Ihre Installation schnell und effizient umzusetzen",
-      "descriptionEN": "For a complex network installation, our professional service is ready to realise your installation quickly and efficiently",
+      "descriptionDE": "Für eine komplexe Netzwerkinstallation steht unser Profi-Service bereit, um Ihre Installation schnell und effizient umzusetzen.",
+      "descriptionEN": "For a complex network installation, our professional service is ready to realise your installation quickly and efficiently.",
       "priceDE": "Nach Absprache",
       "priceEN": "In Consultation"
     }

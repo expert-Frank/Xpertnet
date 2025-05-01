@@ -28,7 +28,7 @@ return [
 
     "availabilityT" => "Verfügbarkeit prüfen",
     "availabilityD" => "Geben Sie Ihre Adresse ein und prüfen Sie, ob die gewünschten Internet-Verbindungen an Ihrem Standort verfügbar sind.",
-    "setupT" => "Installation – Einfach oder Profi?",
+    "setupT" => "Installation – Selbst oder mit Profi?",
     "setupEasyT" => "Einfaches Netzwerk",
     "setupEasyD" => "Wenn Sie ein einfaches Netzwerk zu Hause oder im Büro aufbauen möchten, können Sie die Installation ganz einfach selbst vornehmen.",
     "setupComplexT" => "Aufwendige Installation",

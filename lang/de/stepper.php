@@ -24,4 +24,7 @@ return [
     "errRobot" => "Bitte bestätigen Sie, dass Sie kein Roboter sind",
     "success" => "Bestellung aufgenommen",
     "successDesc" => "Ihre Bestellung wurde aufgenommen. Wir melden uns baldestmöglich bei Ihnen.",
+    "Fibre XGS-PON" => "Fiber XGS-PON",
+    "Fibre BX" => "Fiber BX",
+    "VDSL" => "VDSL",
 ];

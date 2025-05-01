@@ -249,16 +249,17 @@ export default function PlanSelection({
           <IconLoader2 className="animate-spin" size={42} />
         </div>
       )}
-      {!address ? (
+      {!address && (
         <Alert
           icon={<IconInfoCircleFilled />}
           title={t("stepper.addAddressFirst")}
         >
           {t("stepper.addAddressFirstDesc")}
         </Alert>
-      ) : (
-        <>{desc}</>
       )}
+
+      {address && !loading && <>{desc}</>}
+
       {plans.length > 0 && (
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-4">
           {plans.map((plan, i) => (
@@ -300,7 +301,7 @@ export default function PlanSelection({
                         className="px-3 py-[1px] rounded-full bg-emerald-100 dark:bg-lime-600 text-black dark:text-white font-semibold text-sm"
                         key={j}
                       >
-                        {technologyMapping[a.TechnologyType]}
+                        {t(`stepper.${technologyMapping[a.TechnologyType]}`)}
                       </span>
                     ))}
                   </div>
@@ -313,7 +314,7 @@ export default function PlanSelection({
                           className="px-3 py-[1px] rounded-full bg-emerald-100 dark:bg-lime-600 text-black dark:text-white font-semibold text-sm"
                           key={j}
                         >
-                          {opt}
+                          {t(`stepper.${opt}`)}
                         </span>
                       ))}
                   </div>
