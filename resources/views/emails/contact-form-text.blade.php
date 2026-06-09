@@ -1,4 +1,4 @@
-Neue Nachricht von {{ $name }}
+Neue Nachricht von {{ $name }} <{{ $email }}>
 
 ---
 

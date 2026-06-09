@@ -33,9 +33,9 @@ class Order extends Mailable
   {
     return new Envelope(
       subject: 'Neue Bestellung von ' . $this->contact['name'] . ' via xpertnet.ch',
-      replyTo: [
-        new Address($this->contact['email'], $this->contact['name'])
-      ]
+      // replyTo: [
+      //   new Address($this->contact['email'], $this->contact['name'])
+      // ]
     );
   }
 

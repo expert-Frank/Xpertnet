@@ -30,9 +30,9 @@ class ContactForm extends Mailable
     {
         return new Envelope(
             subject: 'Neue Kontaktanfrage von ' . $this->name . ' via xpertnet.ch',
-            replyTo: [
-                new Address($this->email, $this->name)
-            ]
+            // replyTo: [
+            //     new Address($this->email, $this->name)
+            // ]
         );
     }
 

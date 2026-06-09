@@ -40,7 +40,7 @@
             </table>
             <div style="height:16px"></div>
             <h4 style="margin:0">
-              Neue Nachricht von <strong>{{ $name }}</strong>
+              Neue Nachricht von <strong>{{ $name }}</strong> &lt;{{ $email }}&gt;
             </h4>
             <div style="height:16px"></div>
             <p

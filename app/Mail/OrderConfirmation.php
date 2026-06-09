@@ -33,9 +33,9 @@ class OrderConfirmation extends Mailable
   {
     return new Envelope(
       subject: 'Bestellungsbestätiugng von xpertnet.ch',
-      replyTo: [
-        new Address(env('MAIL_RECEIVER', ''), "Xpertnet")
-      ]
+      // replyTo: [
+      //   new Address(env('MAIL_RECEIVER', ''), "Xpertnet")
+      // ]
     );
   }
 

@@ -1,4 +1,4 @@
-Neue Bestellung von {{ $contact['name'] }}
+Neue Bestellung von {{ $contact['name'] }} <{{ $contact['email'] }}>
 
 @if($contact['message'] !== "")
 Nachricht:

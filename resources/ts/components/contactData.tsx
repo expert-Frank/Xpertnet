@@ -153,13 +153,13 @@ export default function ContactData({
             <input
               type="checkbox"
               className="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-emerald-600 checked:border-emerald-600 outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-600 dark:focus:ring-lime-400"
-              id="human"
+              id="orderHuman"
             />
             <span className="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <IconCheck />
             </span>
           </label>
-          <label for="human">{t("contact.human")}</label>
+          <label for="orderHuman">{t("contact.human")}</label>
           {errorMessage("human", errors)}
         </div>
         <div className="flex gap-4 items-center my-1">
@@ -169,13 +169,13 @@ export default function ContactData({
               onChange={(e) => setRobot(e.target.checked)}
               type="checkbox"
               className="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-emerald-600 checked:border-emerald-600 outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-600 dark:focus:ring-lime-400"
-              id="robot"
+              id="orderRobot"
             />
             <span className="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <IconCheck />
             </span>
           </label>
-          <label for="robot">{t("contact.robot")}</label>
+          <label for="orderRobot">{t("contact.robot")}</label>
           {errorMessage("robot", errors)}
         </div>
       </div>

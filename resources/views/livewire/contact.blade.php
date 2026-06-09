@@ -1,7 +1,7 @@
 <section class="p-6 block lg:flex flex-row-reverse items-center gap-36 w-full max-w-[1200px] mx-auto" id="contact">
    <div class="flex grow gap-4 items-start text-black dark:text-neutral-100 group">
         <img src="/img/pentagon.svg" class="w-10 group-hover:rotate-72 duration-250 drop-shadow-lg" />
-        <h2 class="font-bold text-3xl lg:text-5xl mt-0 lg:-mt-2">
+        <h2 class="font-bold text-3xl lg:text-5xl mt-0 lg:-mt-2 whitespace-nowrap">
             {{ __('contact.title') }}
         </h2>
     </div>

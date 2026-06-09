@@ -40,7 +40,7 @@
             </table>
             <div style="height:16px"></div>
             <h4 style="margin:0">
-              Neue Bestellung von <strong>{{ $contact['name'] }}</strong>
+              Neue Bestellung von <strong>{{ $contact['name'] }}</strong> &lt;{{ $contact['email'] }}&gt;
             </h4>
 
             @if($contact['message'] !== "")
