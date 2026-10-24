@@ -8,7 +8,7 @@ RUN npm i --legacy-peer-deps
 RUN npm run build
 
 
-FROM php:8.3-fpm
+FROM php:8.3.36-fpm
 
 COPY composer.lock composer.json /var/www/
 WORKDIR /var/www
