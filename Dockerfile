@@ -51,6 +51,7 @@ RUN composer install
 
 # Create Dummy Database
 RUN sqlite3 database/database.sqlite "VACUUM;"
+RUN chmod 777 database
 RUN chmod 777 database/database.sqlite
 
 # Add user for laravel application
@@ -64,5 +65,7 @@ RUN chmod 777 database/database.sqlite
 #USER www
 
 # Expose port 9000 and start php-fpm server
+RUN chown -R www-data:www-data /var/www/storage
+
 EXPOSE 9000
 CMD ["bash", "entrypoint.sh"]
