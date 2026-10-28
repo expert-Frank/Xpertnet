@@ -1,21 +1,57 @@
+variables:
+  DOCKER_API_VERSION: "1.44"
+
 stages:
+  - build
   - deploy
 
-deploy:
-  stage: deploy
-  image: php:8.3-alpine
+build:
+  stage: build
+  image: docker:stable
+  services:
+    - name: "docker:dind"
+      entrypoint: ["env", "-u", "DOCKER_HOST"]
+      command: ["dockerd-entrypoint.sh"]
+      alias: docker
+  variables:
+    GIT_SUBMODULE_STRATEGY: normal
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
   script:
-    - rm -rf .git
-    - apk add --update sshpass zip lftp curl bash python3 nodejs-current npm
-    - npm i --legacy-peer-deps
-    - npm run build
-    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-    - composer install
-    - sed -i 's/protected/public/g' vendor/alfrasc/laravel-matomo-tracker/src/LaravelMatomoTracker.php
-    - zip -r xpertnet.zip .
-    - lftp -c "set ftp:ssl-protect-data true; set ftp:ssl-force true; set ftp:ssl-auth TLS; set ssl:verify-certificate no; open -u $FTP_USER,$FTP_PASS $FTP_HOST; put -O xpertnet.ch xpertnet.zip; bye"
-    - curl -X GET https://xpertnet.ch/extract
+    - docker build --cache-from "$CI_REGISTRY/$CI_REGISTRY_IMAGE:latest" -t "$CI_REGISTRY/$CI_REGISTRY_IMAGE:latest" ./
+    - docker push "$CI_REGISTRY/$CI_REGISTRY_IMAGE:latest"
   environment:
     name: production
   only:
     - main
+
+deploy:
+  stage: deploy
+  image: alpine:latest
+  script:
+    - chmod og= $SSH_PRIVATE_KEY
+    - apk update && apk add openssh-client
+    - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_HOST "docker service update --force --image $CI_REGISTRY/$CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE"
+  only:
+    - main
+# stages:
+#   - deploy
+#
+# deploy:
+#   stage: deploy
+#   image: php:8.3-alpine
+#   script:
+#     - rm -rf .git
+#     - apk add --update sshpass zip lftp curl bash python3 nodejs-current npm
+#     - npm i --legacy-peer-deps
+#     - npm run build
+#     - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+#     - composer install
+#     - sed -i 's/protected/public/g' vendor/alfrasc/laravel-matomo-tracker/src/LaravelMatomoTracker.php
+#     - zip -r xpertnet.zip .
+#     - lftp -c "set ftp:ssl-protect-data true; set ftp:ssl-force true; set ftp:ssl-auth TLS; set ssl:verify-certificate no; open -u $FTP_USER,$FTP_PASS $FTP_HOST; put -O xpertnet.ch xpertnet.zip; bye"
+#     - curl -X GET https://xpertnet.ch/extract
+#   environment:
+#     name: production
+#   only:
+#     - main
