@@ -81,9 +81,24 @@ Route::post('/order', function (Request $request) {
   $router_json = json_encode($router, JSON_PRETTY_PRINT);
   $installation_json = json_encode($installation, JSON_PRETTY_PRINT);
 
-  Mail::to(env('MAIL_RECEIVER', ''))->send(new Order($address, $plan_json, $ips_json, $router_json, $installation_json, $contact));
-  Mail::to($contact['email'])->send(new OrderConfirmation($address, $plan, $ips, $router, $installation, $contact));
-  Log::info('Order from ' . $contact['name'] . ' <' . $contact['email'] . '> sent to ' . env('MAIL_RECEIVER', '[not supplied]'));
+  // Mail::to(env('MAIL_RECEIVER', ''))->send(new Order($address, $plan_json, $ips_json, $router_json, $installation_json, $contact));
+  // Mail::to($contact['email'])->send(new OrderConfirmation($address, $plan, $ips, $router, $installation, $contact));
+  // Log::info('Order from ' . $contact['name'] . ' <' . $contact['email'] . '> sent to ' . env('MAIL_RECEIVER', '[not supplied]'));
+  $filename = base_path("messages/Order_" . date(DATE_ATOM) . ".html");
+  $content = new Order($address, $plan_json, $ips_json, $router_json, $installation_json, $contact)->render();
+
+  if (!$fp = fopen($filename, 'w')) {
+      Log::info("Cannot open file ($filename)");
+      exit;
+  }
+
+  if (fwrite($fp, $content) === FALSE) {
+      Log::info("Cannot write to file ($filename)");
+      exit;
+  }
+
+  Log::info('Order from ' . $contact['name'] . ' <' . $contact['email'] . '> saved to ' . $filename);
+
 
   return "OK";
 });

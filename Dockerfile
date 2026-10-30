@@ -66,6 +66,7 @@ RUN chmod 777 database/database.sqlite
 
 # Expose port 9000 and start php-fpm server
 RUN chown -R www-data:www-data /var/www/storage
+RUN mkdir messages
 
 EXPOSE 9000
 CMD ["bash", "entrypoint.sh"]

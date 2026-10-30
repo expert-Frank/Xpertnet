@@ -29,9 +29,24 @@ class Contact extends Component
     {
         $this->validate();
 
-        Mail::to(env('MAIL_RECEIVER', ''))->send(new ContactForm($this->name, $this->email, $this->message));
+        // Mail::to(env('MAIL_RECEIVER', ''))->send(new ContactForm($this->name, $this->email, $this->message));
 
-        Log::info('Contact form from ' . $this->name . ' <' . $this->email . '> sent to ' . env('MAIL_RECEIVER', '[not supplied]'));
+        // Log::info('Contact form from ' . $this->name . ' <' . $this->email . '> sent to ' . env('MAIL_RECEIVER', '[not supplied]'));
+
+        $filename = base_path("messages/Contact_" . date(DATE_ATOM) . ".html");
+        $content = new ContactForm($this->name, $this->email, $this->message)->render();
+
+        if (!$fp = fopen($filename, 'w')) {
+            Log::info("Cannot open file ($filename)");
+            exit;
+        }
+
+        if (fwrite($fp, $content) === FALSE) {
+            Log::info("Cannot write to file ($filename)");
+            exit;
+        }
+
+        Log::info('Contact form from ' . $this->name . ' <' . $this->email . '> saved to ' . $filename);
 
         $this->name = "";
         $this->email = "";
